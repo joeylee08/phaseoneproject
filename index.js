@@ -1,15 +1,10 @@
-
-// Global variables
-const createEventButton = document.querySelector('#createEventBtn');
-const modalBox = document.querySelector('#eventCreateModal');
-const eventForm = document.querySelector('#createEventForm');
-const eventsContainer = document.querySelector("#eventsContainer")
-
 //global variables
-const createEventButton = document.querySelector('#createEventBtn');
+const createEventButton = document.querySelector('#eventCreateBtn');
 const modalBox = document.querySelector('#eventCreateModal');
 const eventForm = document.querySelector('#createEventForm');
 const fetchUrl = 'http://localhost:3000/events';
+const eventsContainer = document.querySelector("#eventsContainer")
+
 
 //hide modal box on pageload and attach listener to display it
 modalBox.classList.add('hidden');
@@ -53,3 +48,4 @@ function getAllData() {
     .then(objArray => objArray.forEach(event => renderEvent(event)))
     .catch(err => alert(err.message))
 }
+getAllData()

@@ -45,9 +45,12 @@ button#eventCreateBtn:hover {
 
 #eventsContainer {
   margin: auto;
-  width: 800px;
-  height: 1200px;
+  width: 90%;
   border: 2px solid red;
+  display: grid;
+  gap: 2rem;
+  grid-auto-columns: 1fr;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 #eventCreateModal {
@@ -79,4 +82,19 @@ div.hidden {
 .form {
   position: relative;
   width: 600px;
+}
+
+.card {
+  background-color: #fdf2d0;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 1rem;
 }
