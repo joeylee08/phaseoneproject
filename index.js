@@ -1,3 +1,10 @@
+
+// Global variables
+const createEventButton = document.querySelector('#createEventBtn');
+const modalBox = document.querySelector('#eventCreateModal');
+const eventForm = document.querySelector('#createEventForm');
+const eventsContainer = document.querySelector("#eventsContainer")
+
 //global variables
 const createEventButton = document.querySelector('#createEventBtn');
 const modalBox = document.querySelector('#eventCreateModal');
@@ -6,6 +13,22 @@ const fetchUrl = 'http://localhost:3000/events';
 
 //hide modal box on pageload and attach listener to display it
 modalBox.classList.add('hidden');
+
+// Kat code
+const renderEvent = (eventObj) => {
+  const eventCard = document.createElement("div")
+  eventCard.setAttribute("class", "card")
+  const image = document.createElement("img")
+  image.src = eventObj.image
+  image.alt = eventObj.name
+  const h3 = document.createElement("h3")
+  h3.textContent = eventObj.name
+  eventCard.append(image, h3)
+  eventsContainer.append(eventCard)
+}
+
+// Joseph code
+
 createEventButton.addEventListener('click', () => {
   modalBox.classList.remove('hidden');
 })
@@ -30,6 +53,3 @@ function getAllData() {
     .then(objArray => objArray.forEach(event => renderEvent(event)))
     .catch(err => alert(err.message))
 }
-
-//FOR KAT TO CODE!!! DO NOT TOUCH UNLESS YOU ARE KAT!
-function renderEvent(eventObj) {}
