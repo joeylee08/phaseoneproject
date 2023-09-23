@@ -1,0 +1,140 @@
+{
+  "events": [
+  {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "name": "Beet Wine Tasting",
+      "date": "2023-10-15",
+      "location": "Schrute Farms",
+      "description": "Indulge in a unique countryside experience at Schrute Farms' Beet Wine Tasting event! Wander through the picturesque beet fields and savor a selection of handcrafted beet wines, expertly curated by Dwight Schrute himself. As you sip on the robust flavors, take in the rustic charm of the farm and discover the secrets behind this eccentric winemaking process. Don't forget to bring your own rain boots, as it might get a tad muddy. Limited parking available, so consider carpooling with fellow beet enthusiasts for an unforgettable day in the heart of the beet capital."
+  },
+  {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1509805735646-2f72b3272a7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80",
+      "name": "Happy Unbirthday Party",
+      "date": "2023-11-12",
+      "location": "Tulgey Wood",
+      "description": "Venture into the whimsical Tulgey Wood and celebrate your Unbirthday at this extraordinary party! Hosted by the ever-mysterious Cheshire Cat, this event promises an afternoon of enchantment and merriment. Enjoy a delightful tea party under the sprawling trees, surrounded by mischievous creatures and playful chatter. Wear your most extravagant hat and bring an umbrella, for the weather can be as capricious as the inhabitants of Wonderland. Follow the White Rabbit's trail for directions to this fantastical gathering. It's sure to be a day you won't soon forget!"
+  },
+  {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+      "name": "Potions and Charms Class",
+      "date": "2023-09-30",
+      "location": "Hogwarts School of Witchcraft and Wizardry",
+      "description": "Step into the magical world of Hogwarts and join us for a spellbinding lesson in Potions and Charms! Led by the esteemed Professor Snape, this class offers a hands-on experience in brewing potions and mastering enchantments. All necessary materials will be provided, so simply bring your eagerness to learn and a keen sense of curiosity. For a truly magical arrival, consider taking the Hogwarts Express. Don your robes and prepare for a day of enchantment and wizardry!"
+  },
+  {
+      "id": 4,
+      "image": "https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "name": "Jurassic Park Picnic",
+      "date": "2023-10-08",
+      "location": "Isla Nublar",
+      "description": "Embark on a prehistoric adventure with a picnic on the awe-inspiring Isla Nublar! Surrounded by towering ancient giants, enjoy a leisurely afternoon of fossil-hunting, guided tours, and even the chance to interact with some of the friendlier dinosaurs. Please be sure to bring a sturdy umbrella, as the weather on the island can be as unpredictable as a velociraptor's mood. Arrive by helicopter for a bird's-eye view of this astonishing ecosystem, and let the wonders of the past transport you to a world long gone but never forgotten."
+  },
+  {
+      "id": 5,
+      "image": "https://images.unsplash.com/photo-1600536347460-b07c77b9472c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+      "name": "Mad Hatter's Tea Party",
+      "date": "2023-10-22",
+      "location": "Wonderland",
+      "description": "It's time to don your most eccentric hat and join the Mad Hatter for a tea party in the fantastical realm of Wonderland! Delight in a spread of curious confections and whimsical brews, all served in the company of Wonderland's most intriguing characters. Expect the unexpected, and bring an umbrella for a surprise shower of tea, courtesy of the ever-playful March Hare. Follow the White Rabbit's trail for directions to this topsy-turvy affair, and prepare to lose yourself in the peculiar magic of Wonderland. It's bound to be an Unbirthday celebration like no other!"
+  },
+  {
+      "id": 6,
+      "image": "https://images.unsplash.com/photo-1681407980883-511ea47195a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80",
+      "name": "Narnia Winter Festival",
+      "date": "2023-12-03",
+      "location": "Narnia",
+      "description": "Step through the wardrobe and into the enchanting world of Narnia for the Winter Festival! The land is blanketed in eternal snow, creating a picturesque backdrop for a day of magical festivities. Join us for snowball fights, ice skating on the frozen river, and warm cups of spiced hot cocoa by the lamppost. As you explore the wondrous realm, keep an eye out for visits from the talking animals and perhaps even a sighting of the mighty Aslan. Remember to bundle up warmly, for in Narnia, winter never ends. Follow the whispers of the wind for directions to this extraordinary festival!"
+  },
+  {
+      "id": 7,
+      "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      "name": "Under the Sea Music Festival",
+      "date": "2023-11-25",
+      "location": "Atlantis",
+      "description": "Dive into the rhythm at the Under the Sea Music Festival hosted by King Triton in Atlantis! Get ready for a concert like no other, featuring performances by merfolk and sea creatures. Bring your own waterproof musical instruments to join in the fun! Limited parking available for seahorses, so consider carpooling with fellow ocean enthusiasts."
+  },
+  {
+      "id": 8,
+      "image": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "name": "Feast of the Seven Kingdoms",
+      "date": "2023-10-05",
+      "location": "Westeros",
+      "description": "Join us for the grand Feast of the Seven Kingdoms in the heart of Westeros! Indulge in a lavish banquet fit for kings and queens, complete with exotic delicacies from across the realm. Come dressed in your finest medieval attire, and be prepared for jousting tournaments and dragon-riding exhibitions. Limited parking available near the Red Keep; consider arriving early for a chance to meet the royal family."
+  },
+  {
+      "id": 9,
+      "image": "https://images.unsplash.com/photo-1619108977254-314da85774bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2061&q=80",
+      "name": "Second Breakfast",
+      "date": "2023-09-30",
+      "location": "The Shire",
+      "description": "Join us for a Potato Extravaganza at Second Breakfast in the picturesque Shire! Indulge in a delectable spread of potato-based dishes, from crispy tater tots to creamy mashed potatoes. Don't forget to bring a hearty appetite for adventure! Limited seating available at Bag End, so arrive early to claim your spot and enjoy the rolling hills of the Shire."
+  },
+  {
+      "id": 10,
+      "image": "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "name": "Tea Mastery with Uncle Iroh",
+      "date": "2023-10-20",
+      "location": "Jasmine Dragon, Ba Sing Se",
+      "description": "Embark on a journey of tea mastery with the wise Uncle Iroh at the Jasmine Dragon in Ba Sing Se! Learn the art of brewing the perfect cup of tea and discover the secrets of harmonizing flavors. Uncle Iroh will share ancient wisdom and personal anecdotes as you sip on a variety of exquisite teas. Limited seating available, so reserve your spot early and prepare for a tranquil afternoon of enlightenment and relaxation."
+  },
+  {
+      "id": 11,
+      "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+      "name": "Enchanted Ball",
+      "date": "2023-11-05",
+      "location": "Cinderella's Castle, Fantasyland",
+      "description": "Step into a world of enchantment at the Enchanted Ball held in the iconic Cinderella's Castle! Dance the night away in a grand ballroom adorned with crystal chandeliers and magical decorations. Elegant gowns and dashing suits are a must! The evening promises live music, delectable treats, and a chance to meet Cinderella herself. But remember, as the clock strikes midnight, the magic will fade, so be sure to depart in a timely manner. Limited carriage service available for a fairytale exit."
+  },
+  {
+      "id": 12,
+      "image": "https://images.unsplash.com/photo-1667180466475-54343f11ff5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1826&q=80",
+      "name": "Stars Hollow Fall Festival",
+      "date": "2023-10-28",
+      "location": "Stars Hollow",
+      "description": "Celebrate the autumn season at the Stars Hollow Fall Festival! Join us for a day filled with pumpkin picking, apple bobbing, and hayrides through the colorful New England foliage. Indulge in delicious seasonal treats like caramel apples and hot apple cider. Don't forget to visit Miss Patty's Dance Studio for a lively square dance."
+  },
+  {
+      "id": 13,
+      "image": "https://images.unsplash.com/photo-1576842546422-60562b9242ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80",
+      "name": "Feast of the Nine Realms",
+      "date": "2023-11-15",
+      "location": "Asgard",
+      "description": "Join us for the legendary Asgardian Feast of the Nine Realms! This grand celebration will take place in the golden halls of Asgard, where gods and mortals alike will come together in merriment. Feast on delicacies from across the realms, enjoy performances by the Skalds, and witness the mesmerizing Aurora Borealis of Asgard. Dress in your finest Asgardian attire and prepare for an evening of magic and splendor! Limited Bifrost arrivals, so ensure you're punctual for this cosmic event."
+  },
+  {
+      "id": 14,
+      "image": "https://images.unsplash.com/photo-1631746363761-e0f78d373b73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "event_name": "Galactic Celebration at Mos Eisley Cantina",
+      "date": "2023-11-10",
+      "location": "Mos Eisley, Tatooine",
+      "description": "Embark on an intergalactic adventure at the Galactic Celebration held at the legendary Mos Eisley Cantina on Tatooine! Join fellow rebels, Jedi, and citizens of the galaxy for a night of music, dancing, and exotic libations. Dress as your favorite Star Wars character and participate in the costume contest for a chance to win credits and prizes. Watch out for any unexpected bounty hunters! Limited docking available for starships, so plan your arrival accordingly."
+  },
+  {
+      "id": 15,
+      "image": "https://images.unsplash.com/photo-1681140815866-cdc169941e01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "name": "Highland Festival",
+      "date": "2023-10-07",
+      "location": "Craigh na Dun, Scotland",
+      "description": "Experience the magic of the Scottish Highlands at the Highland Festival held at the ancient standing stones of Craigh na Dun! Immerse yourself in traditional Highland games, music, and dance. Savor authentic Scottish cuisine and explore local crafts. But heed this warning: if you hear a strange buzzing near the standing stones, do not touch them. It could lead to unexpected journeys through time!"
+  },
+  {
+      "id": 16,
+      "image": "https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
+      "name": "Lost Island Beach Party",
+      "date": "2023-10-14",
+      "location": "Unknown Island",
+      "description": "Join fellow survivors of Oceanic Flight 815 for a beach party on this mysterious island! Relax on the sandy shores, swim in the crystal-clear waters, and explore the lush tropical surroundings. Enjoy a BBQ feast with fresh island fruits and seafood delicacies. As the sun sets, gather around the bonfire for stories and camaraderie. Keep an eye out for any unexpected visitors or strange occurrences. Limited seating available, so bring your own beach blanket or chair."
+  },
+  {
+      "id": 17,
+      "image": "https://images.unsplash.com/photo-1554727225-ee66ff0a1bc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1994&q=80",
+      "name": "Shiny Shindig",
+      "date": "2023-10-28",
+      "location": "Serenity, the Black",
+      "description": "Get ready for a shindig aboard the legendary spaceship Serenity, cruising through the Black! Join the crew for a night of dancing, live music, and a hearty spread of frontier-style cuisine. Dress in your finest threads or go full space cowboy for the costume contest. Keep an eye on your belongings, though; Jayne Cobb has a knack for 'borrowing' shiny things. Limited shuttle service available for guests from nearby planets, so RSVP early to secure your spot in the Black."
+  }
+]
+}
