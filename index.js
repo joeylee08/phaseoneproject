@@ -30,9 +30,15 @@ document.addEventListener('mousedown', (e) => {
   if (e.target.classList.contains('formInputField')) return;
   if (e.target.classList.contains('formTextarea')) return;
   if (e.target.classList.contains('label')) return;
+  if (e.target.id === 'submitNewEvent') return;
   if (e.target !== modalBox) {
     modalBox.classList.add('hidden');
   }
+})
+
+eventForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert("Thanks for submitting your event!")
 })
 
 //helper functions
