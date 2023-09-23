@@ -1,18 +1,8 @@
-
-// Global variables
-const createEventButton = document.querySelector('#createEventBtn');
-const modalBox = document.querySelector('#eventCreateModal');
-const eventForm = document.querySelector('#createEventForm');
-const eventsContainer = document.querySelector("#eventsContainer")
-
 //global variables
-const createEventButton = document.querySelector('#createEventBtn');
+const createEventButton = document.querySelector('#eventCreateBtn');
 const modalBox = document.querySelector('#eventCreateModal');
-const eventForm = document.querySelector('#createEventForm');
+const eventForm = document.querySelector('#eventCreateForm');
 const fetchUrl = 'http://localhost:3000/events';
-
-//hide modal box on pageload and attach listener to display it
-modalBox.classList.add('hidden');
 
 // Kat code
 const renderEvent = (eventObj) => {
@@ -28,7 +18,7 @@ const renderEvent = (eventObj) => {
 }
 
 // Joseph code
-
+//add toggle visibility functionality to modal box
 createEventButton.addEventListener('click', () => {
   modalBox.classList.remove('hidden');
 })
@@ -38,6 +28,8 @@ document.addEventListener('mousedown', (e) => {
   if (e.target === createEventButton) return;
   if (e.target === eventForm) return;
   if (e.target.classList.contains('formInputField')) return;
+  if (e.target.classList.contains('formTextarea')) return;
+  if (e.target.classList.contains('label')) return;
   if (e.target !== modalBox) {
     modalBox.classList.add('hidden');
   }
@@ -53,3 +45,8 @@ function getAllData() {
     .then(objArray => objArray.forEach(event => renderEvent(event)))
     .catch(err => alert(err.message))
 }
+
+
+
+//function call
+getAllData()

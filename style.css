@@ -50,10 +50,14 @@ button#eventCreateBtn:hover {
   border: 2px solid red;
 }
 
+div.hidden {
+  display: none;
+}
+
 #eventCreateModal {
   position: fixed;
   margin: auto;
-  height: 500px;
+  height: 480px;
   top: 20%;
   left: 25%;
   right: 25%;
@@ -65,18 +69,36 @@ button#eventCreateBtn:hover {
   z-index: 1;
 }
 
-.formInputField {
-  position: relative;
-  margin: 1.7rem auto 0 3rem;
-  width: 500px;
-  height: 80px;
-}
-
-div.hidden {
-  display: none;
-}
-
-.form {
+#eventCreateform {
+  display: flex;
   position: relative;
   width: 600px;
+}
+
+label#firstLabel {
+  margin-top: 2rem;
+}
+
+.formInputField {
+  position: relative;
+  margin: 0 auto 1.5rem 3rem;
+  width: 500px;
+  height: 20px;
+}
+
+.formTextarea {
+  position: relative;
+  margin: 0 auto 1.5rem 3rem;
+  width: 500px;
+  height: 140px;
+}
+
+label {
+  margin: 0 auto 0.5rem 3rem;
+  width: 150px;
+}
+
+.formInputField, .formTextarea, label {
+  display: flex;
+  flex-direction: column;
 }
