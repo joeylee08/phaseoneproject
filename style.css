@@ -3,18 +3,18 @@ body {
   margin: 0;
 }
 
-.main {
+#main {
   width: 100%;
   height: auto;
 }
 
-.headingDiv {
+#headingDiv {
   background-color: #043927;
   width: 100%;
   height: 250px;
 }
 
-.heading {
+#heading {
   background-color: #043927;
   color: white;
   margin: auto;
@@ -30,7 +30,7 @@ body {
   width: 500px;
 }
 
-button#createEventBtn {
+button#eventCreateBtn {
   margin: auto;
   width: 500px;
   height: 80px;
@@ -39,21 +39,15 @@ button#createEventBtn {
   font-size: 1.5rem;
 }
 
-button#createEventBtn:hover {
+button#eventCreateBtn:hover {
   border: 2px solid red; 
 }
 
-.row {
-  background-color: #fff2cc;
-  margin: 1rem auto 1rem auto;
-  width: 100%;
-  height: 300px;
-  padding-top: 0.1rem;
-}
-
-.week {
-  margin: 1rem;
-  width: 180px;
+#eventsContainer {
+  margin: auto;
+  width: 800px;
+  height: 1200px;
+  border: 2px solid red;
 }
 
 #eventCreateModal {
