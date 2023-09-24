@@ -53,10 +53,14 @@ button#eventCreateBtn:hover {
   grid-template-columns: repeat(4, 1fr);
 }
 
+div.hidden {
+  display: none;
+}
+
 #eventCreateModal {
   position: fixed;
   margin: auto;
-  height: 500px;
+  height: 485px;
   top: 20%;
   left: 25%;
   right: 25%;
@@ -68,15 +72,46 @@ button#eventCreateBtn:hover {
   z-index: 1;
 }
 
-.formInputField {
+#eventCreateForm {
   position: relative;
-  margin: 1.7rem auto 0 3rem;
-  width: 500px;
-  height: 80px;
+  width: 600px;
 }
 
-div.hidden {
-  display: none;
+label#firstLabel {
+  margin-top: 2rem;
+}
+
+.formInputField {
+  position: relative;
+  margin: 0 auto 1.2rem 3rem;
+  width: 500px;
+  height: 20px;
+}
+
+.formTextarea {
+  position: relative;
+  margin: 0 auto 1.2rem 3rem;
+  width: 500px;
+  height: 140px;
+}
+
+label {
+  margin: 0 auto 0.5rem 3rem;
+  width: 150px;
+}
+
+#submitNewEvent {
+  font-size: 1rem;
+  margin: auto;
+  width: 150px;
+  height: 30px;
+  padding-left: 0.7rem;
+  padding-top: 0.3rem;
+}
+
+.formInputField, .formTextarea, label, #submitNewEvent {
+  display: flex;
+  flex-direction: column;
 }
 
 .form {
@@ -98,3 +133,4 @@ div.hidden {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin: 1rem;
 }
+
