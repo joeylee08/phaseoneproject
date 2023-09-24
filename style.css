@@ -60,7 +60,7 @@ div.hidden {
 #eventCreateModal {
   position: fixed;
   margin: auto;
-  height: 485px;
+  height: 560px;
   top: 20%;
   left: 25%;
   right: 25%;
@@ -83,35 +83,37 @@ label#firstLabel {
 
 .formInputField {
   position: relative;
-  margin: 0 auto 1.2rem 3rem;
+  margin: 0 auto 1rem 3rem;
   width: 500px;
   height: 20px;
 }
 
 .formTextarea {
   position: relative;
-  margin: 0 auto 1.2rem 3rem;
+  margin: 0 auto 1rem 3rem;
   width: 500px;
   height: 140px;
 }
 
 label {
   margin: 0 auto 0.5rem 3rem;
-  width: 150px;
+  width: 300px;
 }
 
 #submitNewEvent {
   font-size: 1rem;
   margin: auto;
-  width: 150px;
+  margin-top: 1.6rem;
+  width: 200px;
   height: 30px;
-  padding-left: 0.7rem;
+  padding-left: 1.6rem;
   padding-top: 0.3rem;
 }
 
 .formInputField, .formTextarea, label, #submitNewEvent {
   display: flex;
   flex-direction: column;
+  font-family: courier;
 }
 
 .form {
@@ -130,7 +132,7 @@ label {
 }
 
 .card h3 {
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
   margin: 1rem;
 }
 
