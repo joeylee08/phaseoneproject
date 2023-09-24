@@ -41,6 +41,7 @@ document.addEventListener('mousedown', (e) => {
 eventForm.addEventListener('submit', (e) => {
   e.preventDefault();
   alert("Thanks for submitting your event!")
+  modalBox.classList.add('hidden')
 })
 
 //helper functions
@@ -53,8 +54,6 @@ function getAllData() {
     .then(objArray => objArray.forEach(event => renderEvent(event)))
     .catch(err => alert(err.message))
 }
-
-
 
 //function call
 getAllData()
