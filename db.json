@@ -107,7 +107,7 @@
     {
       "id": 14,
       "image": "https://images.unsplash.com/photo-1631746363761-e0f78d373b73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      "event_name": "Galactic Celebration at Mos Eisley Cantina",
+      "name": "Galactic Celebration at Mos Eisley Cantina",
       "date": "2023-11-10",
       "location": "Mos Eisley, Tatooine",
       "description": "Embark on an intergalactic adventure at the Galactic Celebration held at the legendary Mos Eisley Cantina on Tatooine! Join fellow rebels, Jedi, and citizens of the galaxy for a night of music, dancing, and exotic libations. Dress as your favorite Star Wars character and participate in the costume contest for a chance to win credits and prizes. Watch out for any unexpected bounty hunters! Limited docking available for starships, so plan your arrival accordingly."
@@ -141,7 +141,7 @@
       "name": "Exploration of the Titanic",
       "date": "2023-08-15",
       "location": "At the bottom of the Atlantic Ocean.",
-      "description": "We will be venturing down into the depths of the Atlantic Ocean to explore the wreckage of the Titanic. All are welcome to attend! Tickets are $20,000 USD per adult and $12,000 USD for children 12 and under. Come join us for this once-in-a-lifetime opportunity. It is to DIE for.",
+      "description": "Dive into history like never before with the most epic underwater adventure of a lifetime! Get ready for a heart-pounding, spine-tingling expedition as we take you down to the chilling depths of the ocean to visit the iconic wreck of the RMS Titanic!",
       "id": 18
     }
   ]

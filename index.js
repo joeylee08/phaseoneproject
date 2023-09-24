@@ -40,9 +40,10 @@ document.addEventListener('mousedown', (e) => {
 
 eventForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  submitNewEvent()
-  alert("Thanks for submitting your event!")
-  modalBox.classList.add('hidden')
+  submitNewEvent();
+  alert("Thanks for submitting your event!");
+  modalBox.classList.add('hidden');
+  eventForm.reset();
 })
 
 //helper functions
