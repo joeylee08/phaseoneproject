@@ -40,6 +40,7 @@ document.addEventListener('mousedown', (e) => {
 
 eventForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  submitNewEvent()
   alert("Thanks for submitting your event!")
   modalBox.classList.add('hidden')
 })
@@ -53,6 +54,30 @@ function getAllData() {
     })
     .then(objArray => objArray.forEach(event => renderEvent(event)))
     .catch(err => alert(err.message))
+}
+
+function submitNewEvent() {
+  const eventObj = {
+    image: eventForm.image.value,
+    name: eventForm.name.value,
+    date: eventForm.date.value,
+    location: eventForm.location.value,
+    description: eventForm.desc.value
+  }
+  fetch(fetchUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(eventObj)
+  })
+  .then(resp => {
+    if (resp.ok) return resp.json()
+    throw new Error('Failed to submit event data.')
+  })
+  .then(event => renderEvent(event))
+  .catch(err => alert(err.message))
 }
 
 //function call
