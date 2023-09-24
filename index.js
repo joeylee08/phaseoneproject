@@ -1,12 +1,30 @@
 //global variables
 const createEventButton = document.querySelector('#eventCreateBtn');
-const modalBox = document.querySelector('#eventCreateModal');
+const modalBox = document.querySelector('.modal');
 const eventForm = document.querySelector('#eventCreateForm');
 const fetchUrl = 'http://localhost:3000/events';
 const eventsContainer = document.querySelector("#eventsContainer")
+const eventDetails = document.querySelector("#detailsModal")
 
 
 // Kat code
+  // display event details
+const displayDetails = (eventObj) => {
+  const image = document.createElement("img")
+  image.src = eventObj.image
+  image.alt = eventObj.name
+  const h3 = document.createElement("h3")
+  h3.textContent = eventObj.name
+  const pDateLoc = document.createElement("p")
+  pDateLoc.textContent = `${eventObj.date}, ${eventObj.location}`
+  const pDescrip = document.createElement("p")
+  pDescrip.textContent = eventObj.description
+
+  eventDetails.append(image, h3, pDateLoc, pDescrip)
+  eventDetails.parentNode.classList.remove('hidden')
+}
+
+  // render card for event
 const renderEvent = (eventObj) => {
   const eventCard = document.createElement("div")
   eventCard.setAttribute("class", "card")
@@ -16,6 +34,9 @@ const renderEvent = (eventObj) => {
   const h3 = document.createElement("h3")
   h3.textContent = eventObj.name
   eventCard.append(image, h3)
+
+  eventCard.addEventListener("click", e => displayDetails(eventObj))
+
   eventsContainer.append(eventCard)
 }
 
@@ -33,7 +54,7 @@ document.addEventListener('mousedown', (e) => {
   if (e.target.classList.contains('formTextarea')) return;
   if (e.target.classList.contains('label')) return;
   if (e.target.id === 'submitNewEvent') return;
-  if (e.target !== modalBox) {
+  if (e.target !== eventForm || e.target !== eventDetails) {
     modalBox.classList.add('hidden');
   }
 })
