@@ -3,6 +3,8 @@ const createEventButton = document.querySelector('#eventCreateBtn');
 const modalBox = document.querySelector('#eventCreateModal');
 const eventForm = document.querySelector('#eventCreateForm');
 const fetchUrl = 'http://localhost:3000/events';
+const eventsContainer = document.querySelector("#eventsContainer")
+
 
 // Kat code
 const renderEvent = (eventObj) => {
