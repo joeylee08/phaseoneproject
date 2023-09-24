@@ -7,6 +7,10 @@ const eventsContainer = document.querySelector("#eventsContainer")
 
 
 // Kat code
+const displayDetails = (eventObj) => {
+
+}
+
 const renderEvent = (eventObj) => {
   const eventCard = document.createElement("div")
   eventCard.setAttribute("class", "card")
@@ -16,6 +20,9 @@ const renderEvent = (eventObj) => {
   const h3 = document.createElement("h3")
   h3.textContent = eventObj.name
   eventCard.append(image, h3)
+
+  eventCard.addEventListener("click", displayDetails(eventObj))
+
   eventsContainer.append(eventCard)
 }
 
