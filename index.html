@@ -15,18 +15,20 @@
       <div id="buttonDiv">
         <button class="button" id="eventCreateBtn">Create New Event!</button>
       </div>
-      <div class="modal hidden" id="eventCreateModal">
-        <form id="eventCreateForm">
-          <label class="label" for="formField1" id="firstLabel">Event Name</label>
-          <input class="formInputField" id="formField1">
-          <label class="label" for="formField2">Date and Time</label>
-          <input class="formInputField" id="formField2">
-          <label class="label" for="formField3">Location</label>
-          <input class="formInputField" id="formField3">
-          <label class="label" for="formField4">Event Description</label>
-          <textarea class="formTextarea" id="formField4"></textarea>
-          <input type="submit" value="Submit My Event" id="submitNewEvent">
-        </form>
+      <div class="modal hidden">
+        <div id="eventCreateModal" class="modal-content">
+          <form id="eventCreateForm">
+            <label class="label" for="formField1" id="firstLabel">Event Name</label>
+            <input class="formInputField" id="formField1">
+            <label class="label" for="formField2">Date and Time</label>
+            <input class="formInputField" id="formField2">
+            <label class="label" for="formField3">Location</label>
+            <input class="formInputField" id="formField3">
+            <label class="label" for="formField4">Event Description</label>
+            <textarea class="formTextarea" id="formField4"></textarea>
+            <input type="submit" value="Submit My Event" id="submitNewEvent">
+          </form>
+        </div>
       </div>
       <div id="eventsContainer">
       </div>
