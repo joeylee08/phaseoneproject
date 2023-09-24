@@ -8,7 +8,20 @@ const eventsContainer = document.querySelector("#eventsContainer")
 
 // Kat code
 const displayDetails = (eventObj) => {
+  const detailsModal = document.createElement("div")
+  detailsModal.setAttribute("class", "modal")
+  const image = document.createElement("img")
+  image.src = eventObj.image
+  image.alt = eventObj.name
+  const h3 = document.createElement("h3")
+  h3.textContent = eventObj.name
+  const pDateLoc = document.createElement("p")
+  pDateLoc.textContent = `${eventObj.date}, ${eventObj.location}`
+  const pDescrip = document.createElement("p")
+  pDescrip.textContent = eventObj.description
 
+  detailsModal.append(image, h3, pDateLoc, pDescrip)
+  // modalBox.after(detailsModal)
 }
 
 const renderEvent = (eventObj) => {
