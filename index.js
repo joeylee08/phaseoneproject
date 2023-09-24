@@ -4,12 +4,11 @@ const modalBox = document.querySelector('.modal');
 const eventForm = document.querySelector('#eventCreateForm');
 const fetchUrl = 'http://localhost:3000/events';
 const eventsContainer = document.querySelector("#eventsContainer")
+const eventDetails = document.querySelector("#detailsModal")
 
 
 // Kat code
 const displayDetails = (eventObj) => {
-  const detailsModal = document.createElement("div")
-  detailsModal.setAttribute("class", "modal")
   const image = document.createElement("img")
   image.src = eventObj.image
   image.alt = eventObj.name
@@ -20,8 +19,8 @@ const displayDetails = (eventObj) => {
   const pDescrip = document.createElement("p")
   pDescrip.textContent = eventObj.description
 
-  detailsModal.append(image, h3, pDateLoc, pDescrip)
-  // modalBox.after(detailsModal)
+  eventDetails.append(image, h3, pDateLoc, pDescrip)
+  eventDetails.parentNode.classList.remove('hidden')
 }
 
 const renderEvent = (eventObj) => {
@@ -34,7 +33,7 @@ const renderEvent = (eventObj) => {
   h3.textContent = eventObj.name
   eventCard.append(image, h3)
 
-  eventCard.addEventListener("click", displayDetails(eventObj))
+  eventCard.addEventListener("click", e => displayDetails(eventObj))
 
   eventsContainer.append(eventCard)
 }
@@ -53,7 +52,7 @@ document.addEventListener('mousedown', (e) => {
   if (e.target.classList.contains('formTextarea')) return;
   if (e.target.classList.contains('label')) return;
   if (e.target.id === 'submitNewEvent') return;
-  if (e.target !== eventForm) {
+  if (e.target !== eventForm || e.target !== eventDetails) {
     modalBox.classList.add('hidden');
   }
 })
