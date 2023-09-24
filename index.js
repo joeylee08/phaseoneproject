@@ -8,6 +8,7 @@ const eventDetails = document.querySelector("#detailsModal")
 
 
 // Kat code
+  // display event details
 const displayDetails = (eventObj) => {
   const image = document.createElement("img")
   image.src = eventObj.image
@@ -23,6 +24,7 @@ const displayDetails = (eventObj) => {
   eventDetails.parentNode.classList.remove('hidden')
 }
 
+  // render card for event
 const renderEvent = (eventObj) => {
   const eventCard = document.createElement("div")
   eventCard.setAttribute("class", "card")
