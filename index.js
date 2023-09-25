@@ -22,10 +22,12 @@ const displayDetails = (eventObj) => {
   pDateLoc.textContent = `${parseDate(eventObj.date)}, ${eventObj.location}`
   const pDescrip = document.createElement("p")
   pDescrip.textContent = eventObj.description
+  const detailFooter = document.createElement("div")
+  detailFooter.setAttribute("class", "detail-footer")
 
   // attending drop down
   const label = document.createElement("label")
-  // dropdown.setAttribute("for", "attending")
+  label.setAttribute("name", "attending")
   const dropdown = document.createElement("select")
   dropdown.setAttribute("name", "attending")
   const select = document.createElement("option")
@@ -44,7 +46,12 @@ const displayDetails = (eventObj) => {
 
   dropdown.addEventListener("change", e => toggleAttending(e))
 
-  eventDetails.append(image, h3, pDateLoc, pDescrip, label, dropdown)
+  const attendees = document.createElement("span")
+  attendees.textContent = `${eventObj.attendees} people attending`
+
+  label.append(dropdown)
+  detailFooter.append(label, attendees)
+  eventDetails.append(image, h3, pDateLoc, pDescrip, detailFooter)
   eventDetails.parentNode.classList.add('unhide')
 }
 
@@ -121,8 +128,8 @@ function submitNewEvent() {
 }
 
 function toggleAttending(e) {
-  if (event.target.parentElement.querySelector('span')) {
-    e.target.parentElement.querySelector('span').remove()
+  if (eventDetails.querySelector('h3 span')) {
+    eventDetails.querySelector('h3 span').remove()
   }
   const iconSpan = document.createElement('span');
 
@@ -137,7 +144,7 @@ function toggleAttending(e) {
     iconSpan.classList.add('notgoing')
   }
 
-  e.target.parentElement.children[1].append(iconSpan)
+  eventDetails.children[1].append(iconSpan)
 }
 
 function parseDate(dateString) {

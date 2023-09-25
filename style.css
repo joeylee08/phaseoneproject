@@ -49,15 +49,6 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
-select {
-    margin: 1rem auto;
-    background-color: #405f53;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    font-size: 1rem;
-}
-
 #eventsContainer {
   margin: auto;
   width: 90%;
@@ -162,4 +153,24 @@ label,
 .notgoing {
   font-size: 1.5rem;
   color: red;
+}
+
+.detail-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  background-color: #405f53;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-size: 1rem;
+}
+
+select,
+.detail-footer span {
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
 }
