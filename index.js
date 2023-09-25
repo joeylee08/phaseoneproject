@@ -41,6 +41,7 @@ const displayDetails = (eventObj) => {
   notgoing.textContent = "Not interested"
   dropdown.append(select, interested, going, notgoing)
 
+  dropdown.addEventListener("change", e => toggleAttending(e))
 
   eventDetails.append(image, h3, pDateLoc, pDescrip, label, dropdown)
   eventDetails.parentNode.classList.add('unhide')
