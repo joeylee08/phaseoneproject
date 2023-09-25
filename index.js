@@ -22,7 +22,27 @@ const displayDetails = (eventObj) => {
   const pDescrip = document.createElement("p")
   pDescrip.textContent = eventObj.description
 
-  eventDetails.append(image, h3, pDateLoc, pDescrip)
+  // attending drop down
+  const label = document.createElement("label")
+  // dropdown.setAttribute("for", "attending")
+  const dropdown = document.createElement("select")
+  dropdown.setAttribute("name", "attending")
+  const select = document.createElement("option")
+  select.setAttribute("value", "")
+  select.textContent = "Select one"
+  const interested = document.createElement("option")
+  interested.setAttribute("value", "interested")
+  interested.textContent = "Interested"
+  const going = document.createElement("option")
+  going.setAttribute("value", "going")
+  going.textContent = "Going"
+  const notgoing = document.createElement("option")
+  notgoing.setAttribute("value", "notgoing")
+  notgoing.textContent = "Not interested"
+  dropdown.append(select, interested, going, notgoing)
+
+
+  eventDetails.append(image, h3, pDateLoc, pDescrip, label, dropdown)
   eventDetails.parentNode.classList.add('unhide')
 }
 
