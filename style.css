@@ -58,11 +58,12 @@ input[type="submit"]:hover {
   grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
 }
 
-div.hidden {
-  display: none;
+div.unhide {
+  display: block;
 }
 
 .modal {
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;

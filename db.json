@@ -135,6 +135,14 @@
       "date": "2023-10-28",
       "location": "Serenity, the Black",
       "description": "Get ready for a shindig aboard the legendary spaceship Serenity, cruising through the Black! Join the crew for a night of dancing, live music, and a hearty spread of frontier-style cuisine. Dress in your finest threads or go full space cowboy for the costume contest. Keep an eye on your belongings, though; Jayne Cobb has a knack for 'borrowing' shiny things. Limited shuttle service available for guests from nearby planets, so RSVP early to secure your spot in the Black."
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Titanic_wreck_bow.jpg",
+      "name": "Exploration of the Titanic",
+      "date": "2023-08-15",
+      "location": "At the bottom of the Atlantic Ocean.",
+      "description": "We will be venturing down into the depths of the sea and exploring the Titanic.",
+      "id": 18
     }
   ]
 }
