@@ -49,6 +49,15 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
+select {
+    margin: 1rem auto;
+    background-color: #405f53;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: 1rem;
+}
+
 #eventsContainer {
   margin: auto;
   width: 90%;
