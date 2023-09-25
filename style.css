@@ -35,16 +35,17 @@ body {
 }
 
 button#eventCreateBtn {
-  margin: 2em auto;
+  margin: 2rem auto;
   background-color: #405f53;
   color: white;
   font-size: 1.5rem;
-  padding: 1em 3em;
+  padding: 1rem 3rem;
   border: none;
 }
 
 button:hover, 
-.card:hover {
+.card:hover,
+input[type="submit"]:hover {
   cursor: pointer;
 }
 
@@ -54,7 +55,7 @@ button:hover,
   display: grid;
   gap: 2rem;
   grid-auto-columns: 1fr;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
 }
 
 div.hidden {
@@ -73,25 +74,24 @@ div.hidden {
 
 .modal-content {
   margin: 10% auto;
-  width: 60%;
+  width: 70%;
   max-width: 600px;
   min-width: 300px;
   background-color: #fdf2d0;
   border: 50px solid #997200;
-  padding: 0;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 #eventCreateForm {
   position: relative;
   width: 100%;
-  padding: 1em;
-  box-sizing: border-box;
 }
 
 input, 
 textarea {
   width: 95%;
-  padding: 0.25em;
+  padding: 0.25rem;
 }
 
 textarea {
@@ -99,13 +99,17 @@ textarea {
 }
 
 label {
-  margin: 1em auto;
+  margin: 1rem auto;
 }
 
 input[type="submit"] {
-  padding: 1em;
-  margin: 1em auto;
+  padding: 1rem 2em;
+  margin: 1rem auto;
   width: auto;
+  background-color: #405f53;
+  color: white;
+  font-size: 120%;
+  border: none;
 }
 
 .formInputField, 
