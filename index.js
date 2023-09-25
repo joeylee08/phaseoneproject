@@ -18,7 +18,7 @@ const displayDetails = (eventObj) => {
   const h3 = document.createElement("h3")
   h3.textContent = eventObj.name
   const pDateLoc = document.createElement("p")
-  pDateLoc.textContent = `${eventObj.date}, ${eventObj.location}`
+  pDateLoc.textContent = `${parseDate(eventObj.date)}, ${eventObj.location}`
   const pDescrip = document.createElement("p")
   pDescrip.textContent = eventObj.description
 
@@ -96,6 +96,59 @@ function submitNewEvent() {
   })
   .then(event => renderEvent(event))
   .catch(err => alert(err.message))
+}
+
+// function toggleAttending() {
+
+// }
+
+function parseDate(dateString) {
+  const split = dateString.split("-");
+  const month = split[1];
+  const day = split[2];
+  const year = split[0];
+
+  function getMonthStr(monthNum) {
+    switch(monthNum) {
+      case "01":
+        return "January";
+        break;
+      case "02":
+        return "February";
+        break;
+      case "03":
+        return "March";
+        break;
+      case "04":
+        return "April";
+        break;
+      case "05":
+        return "May";
+        break;
+      case "06":
+        return "June";
+        break;
+      case "07":
+        return "July";
+        break;
+      case "08":
+        return "August";
+        break;
+      case "09":
+        return "September";
+        break;
+      case "10":
+        return "October";
+        break;
+      case "11":
+        return "November";
+        break;
+      case "12":
+        return "December";
+        break;
+    }
+  }
+  return `${getMonthStr(month)} ${day}, ${year}`;
 }
 
 //function call
