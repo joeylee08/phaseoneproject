@@ -148,3 +148,18 @@ label,
   height: 250px;
   object-fit: cover;
 }
+
+.interested {
+  font-size: 1.5rem;
+  color: yellow
+}
+
+.going {
+  font-size: 1.5rem;
+  color: green;
+}
+
+.notGoing {
+  font-size: 1.5rem;
+  color: red;
+}
