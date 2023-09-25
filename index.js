@@ -10,7 +10,7 @@ const eventDetails = document.querySelector("#detailsModal")
 
 // Kat code
   // display event details
-const displayDetails = (eventObj) => {
+const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
   const image = document.createElement("img")
 
@@ -42,9 +42,31 @@ const displayDetails = (eventObj) => {
   const notgoing = document.createElement("option")
   notgoing.setAttribute("value", "notgoing")
   notgoing.textContent = "Not Interested"
+
   dropdown.append(select, interested, going, notgoing)
 
-  dropdown.addEventListener("change", e => toggleAttending(e))
+  if (localStorage.getItem(eventObj.id) !== 0) {
+    const iconSpan = document.createElement('span');
+
+    if (localStorage.getItem(eventObj.id) === '1') {
+      interested.selected = 'true'
+      iconSpan.textContent = ' ★'
+      iconSpan.classList.add('interested')
+    }
+    if (localStorage.getItem(eventObj.id) === '2') {
+      going.selected = 'true'
+      iconSpan.textContent = ' ✔'
+      iconSpan.classList.add('going')
+    }
+    if (localStorage.getItem(eventObj.id) === '3') {
+      notgoing.selected = 'true'
+      iconSpan.textContent = ' ✘'
+      iconSpan.classList.add('notgoing')
+    }
+    h3.append(iconSpan)
+  }
+  
+  dropdown.addEventListener("change", e => toggleAttending(e, eventObj))
 
   const attendees = document.createElement("span")
   attendees.textContent = `${eventObj.attendees} people attending`
@@ -66,7 +88,9 @@ const renderEvent = (eventObj) => {
   h3.textContent = eventObj.name
   eventCard.append(image, h3)
 
-  eventCard.addEventListener("click", e => displayDetails(eventObj))
+  localStorage.setItem(eventObj.id, "0")
+
+  eventCard.addEventListener("click", (e) => displayDetails(e, eventObj))
 
   eventsContainer.append(eventCard)
 }
@@ -127,7 +151,7 @@ function submitNewEvent() {
   .catch(err => alert(err.message))
 }
 
-function toggleAttending(e) {
+function toggleAttending(e, eventObj) {
   if (eventDetails.querySelector('h3 span')) {
     eventDetails.querySelector('h3 span').remove()
   }
@@ -136,12 +160,15 @@ function toggleAttending(e) {
   if (e.target.value === "interested") {
     iconSpan.textContent = ' ★'
     iconSpan.classList.add('interested')
+    localStorage.setItem(eventObj.id, "1")
   } else if (e.target.value === "going") {
     iconSpan.textContent = ' ✔'
     iconSpan.classList.add('going')
+    localStorage.setItem(eventObj.id, "2")
   } else if (e.target.value === "notgoing") {
     iconSpan.textContent = ' ✘'
     iconSpan.classList.add('notgoing')
+    localStorage.setItem(eventObj.id, "3")
   }
 
   eventDetails.children[1].append(iconSpan)
