@@ -30,7 +30,7 @@ const displayDetails = (eventObj) => {
   dropdown.setAttribute("name", "attending")
   const select = document.createElement("option")
   select.setAttribute("value", "")
-  select.textContent = "Select one"
+  select.textContent = "Select One"
   const interested = document.createElement("option")
   interested.setAttribute("value", "interested")
   interested.textContent = "Interested"
@@ -39,7 +39,7 @@ const displayDetails = (eventObj) => {
   going.textContent = "Going"
   const notgoing = document.createElement("option")
   notgoing.setAttribute("value", "notgoing")
-  notgoing.textContent = "Not interested"
+  notgoing.textContent = "Not Interested"
   dropdown.append(select, interested, going, notgoing)
 
   dropdown.addEventListener("change", e => toggleAttending(e))
@@ -121,21 +121,20 @@ function submitNewEvent() {
 }
 
 function toggleAttending(e) {
-  e.target.parentElement.querySelector('span').remove()
-
+  if (event.target.parentElement.querySelector('span')) {
+    e.target.parentElement.querySelector('span').remove()
+  }
   const iconSpan = document.createElement('span');
 
   if (e.target.value === "interested") {
-    icon.textContent = '★'
-    icon.classList.add('interested')
+    iconSpan.textContent = ' ★'
+    iconSpan.classList.add('interested')
   } else if (e.target.value === "going") {
-    icon.textContent = '✔'
-    icon.classList.add('going')
-  } else if (e.target.value === "not going") {
-    icon.textcontent = '✘'
-    icon.classList.add('notGoing')
-  } else {
-    return;
+    iconSpan.textContent = ' ✔'
+    iconSpan.classList.add('going')
+  } else if (e.target.value === "notgoing") {
+    iconSpan.textContent = ' ✘'
+    iconSpan.classList.add('notgoing')
   }
 
   e.target.parentElement.children[1].append(iconSpan)
