@@ -1,6 +1,7 @@
 //global variables
 const createEventButton = document.querySelector('#eventCreateBtn');
 const modalBox = document.querySelector('.modal');
+const modalContent = document.querySelector('div.modal-content');
 const eventForm = document.querySelector('#eventCreateForm');
 const fetchUrl = 'http://localhost:3000/events';
 const eventsContainer = document.querySelector("#eventsContainer")
@@ -10,6 +11,7 @@ const eventDetails = document.querySelector("#detailsModal")
 // Kat code
   // display event details
 const displayDetails = (eventObj) => {
+  eventDetails.innerHTML = "";
   const image = document.createElement("img")
   image.src = eventObj.image
   image.alt = eventObj.name
@@ -21,7 +23,7 @@ const displayDetails = (eventObj) => {
   pDescrip.textContent = eventObj.description
 
   eventDetails.append(image, h3, pDateLoc, pDescrip)
-  eventDetails.parentNode.classList.remove('hidden')
+  eventDetails.parentNode.classList.add('unhide')
 }
 
   // render card for event
@@ -43,19 +45,13 @@ const renderEvent = (eventObj) => {
 // Joseph code
 //add toggle visibility functionality to modal box
 createEventButton.addEventListener('click', () => {
-  modalBox.classList.remove('hidden');
+  modalBox.classList.add('unhide');
 })
 
 //close modal if user clicks outside the box
 document.addEventListener('mousedown', (e) => {
-  if (e.target === createEventButton) return;
-  if (e.target === eventForm) return;
-  if (e.target.classList.contains('formInputField')) return;
-  if (e.target.classList.contains('formTextarea')) return;
-  if (e.target.classList.contains('label')) return;
-  if (e.target.id === 'submitNewEvent') return;
-  if (e.target !== eventForm || e.target !== eventDetails) {
-    modalBox.classList.add('hidden');
+  if (e.target.classList.contains('modal')) {
+    e.target.classList.remove('unhide');
   }
 })
 
