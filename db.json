@@ -7,7 +7,7 @@
       "date": "2023-10-15",
       "location": "Schrute Farms",
       "description": "Indulge in a unique countryside experience at Schrute Farms' Beet Wine Tasting event! Wander through the picturesque beet fields and savor a selection of handcrafted beet wines, expertly curated by Dwight Schrute himself. As you sip on the robust flavors, take in the rustic charm of the farm and discover the secrets behind this eccentric winemaking process. Don't forget to bring your own rain boots, as it might get a tad muddy. Limited parking available, so consider carpooling with fellow beet enthusiasts for an unforgettable day in the heart of the beet capital.",
-      "attendees": 0
+      "attendees": 2
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "date": "2023-11-12",
       "location": "Tulgey Wood",
       "description": "Venture into the whimsical Tulgey Wood and celebrate your Unbirthday at this extraordinary party! Hosted by the ever-mysterious Cheshire Cat, this event promises an afternoon of enchantment and merriment. Enjoy a delightful tea party under the sprawling trees, surrounded by mischievous creatures and playful chatter. Wear your most extravagant hat and bring an umbrella, for the weather can be as capricious as the inhabitants of Wonderland. Follow the White Rabbit's trail for directions to this fantastical gathering. It's sure to be a day you won't soon forget!",
-      "attendees": 0
+      "attendees": 2
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "date": "2023-09-30",
       "location": "Hogwarts School of Witchcraft and Wizardry",
       "description": "Step into the magical world of Hogwarts and join us for a spellbinding lesson in Potions and Charms! Led by the esteemed Professor Snape, this class offers a hands-on experience in brewing potions and mastering enchantments. All necessary materials will be provided, so simply bring your eagerness to learn and a keen sense of curiosity. For a truly magical arrival, consider taking the Hogwarts Express. Don your robes and prepare for a day of enchantment and wizardry!",
-      "attendees": 0
+      "attendees": 1
     },
     {
       "id": 4,
