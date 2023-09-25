@@ -66,13 +66,18 @@ const displayDetails = (e, eventObj) => {
     h3.append(iconSpan)
   }
   
-  dropdown.addEventListener("change", e => toggleAttending(e, eventObj))
+  const attendSpan = document.createElement("span")
+  attendSpan.textContent = `${eventObj.attendees} people attending`
 
-  const attendees = document.createElement("span")
-  attendees.textContent = `${eventObj.attendees} people attending`
+  dropdown.addEventListener("change", e => {
+    toggleAttending(e, eventObj)
+    if(e.target.value === "going") {
+      updateAttending(eventObj)
+    }
+  })
 
   label.append(dropdown)
-  detailFooter.append(label, attendees)
+  detailFooter.append(label, attendSpan)
   eventDetails.append(image, h3, pDateLoc, pDescrip, detailFooter)
   eventDetails.parentNode.classList.add('unhide')
 }
@@ -93,6 +98,29 @@ const renderEvent = (eventObj) => {
   eventCard.addEventListener("click", (e) => displayDetails(e, eventObj))
 
   eventsContainer.append(eventCard)
+}
+
+// PATCH for attendee count
+function updateAttending(eventObj) {
+  fetch(`${fetchUrl}/${eventObj.id}`,{
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      attendees: ++eventObj.attendees
+    })
+  })
+  .then(resp => {
+    if (resp.ok) return resp.json()
+    throw new Error('Failed to update event data.')
+  })
+  .then(updatedEvent => {
+    const attendSpan = document.querySelector(".detail-footer").lastChild
+    attendSpan.textContent = `${updatedEvent.attendees} people attending`
+  })
+  .catch(err => alert(err.message))
 }
 
 // Joseph code
