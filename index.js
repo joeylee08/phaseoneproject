@@ -30,7 +30,7 @@ const displayDetails = (eventObj) => {
   dropdown.setAttribute("name", "attending")
   const select = document.createElement("option")
   select.setAttribute("value", "")
-  select.textContent = "Select one"
+  select.textContent = "Select One"
   const interested = document.createElement("option")
   interested.setAttribute("value", "interested")
   interested.textContent = "Interested"
