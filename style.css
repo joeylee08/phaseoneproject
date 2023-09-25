@@ -1,6 +1,7 @@
 body {
   width: 100%;
   margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #main {
@@ -11,31 +12,41 @@ body {
 #headingDiv {
   background-color: #043927;
   width: 100%;
-  height: 250px;
+  min-height: 250px;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #heading {
   background-color: #043927;
   color: white;
   margin: auto;
-  width: 800px;
-  height: 100px;
   text-align: center;
-  font-size: 4rem;
-  padding-top: 5rem;
+  font-size: 3.5rem;
 }
 
 #buttonDiv {
   margin: auto;
   width: 90%;
+  display: flex;
+  justify-content: center;
 }
 
 button#eventCreateBtn {
-  margin: 2em auto;
-  background-color: #043927;
+  margin: 2rem auto;
+  background-color: #405f53;
   color: white;
   font-size: 1.5rem;
-  padding: 1em 3em;
+  padding: 1rem 3rem;
+  border: none;
+}
+
+button:hover, 
+.card:hover,
+input[type="submit"]:hover {
+  cursor: pointer;
 }
 
 #eventsContainer {
@@ -44,7 +55,7 @@ button#eventCreateBtn {
   display: grid;
   gap: 2rem;
   grid-auto-columns: 1fr;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
 }
 
 div.hidden {
@@ -63,24 +74,24 @@ div.hidden {
 
 .modal-content {
   margin: 10% auto;
-  width: 60%;
+  width: 70%;
   max-width: 600px;
   min-width: 300px;
-  background-color: #ccb87f;
+  background-color: #fdf2d0;
   border: 50px solid #997200;
-  padding: 0;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 #eventCreateForm {
   position: relative;
   width: 100%;
-  padding: 1em;
-  box-sizing: border-box;
 }
 
-input, textarea {
+input, 
+textarea {
   width: 95%;
-  padding: 0.25em;
+  padding: 0.25rem;
 }
 
 textarea {
@@ -88,16 +99,23 @@ textarea {
 }
 
 label {
-  margin: 1em auto;
+  margin: 1rem auto;
 }
 
 input[type="submit"] {
-  padding: 1em;
-  margin: 1em auto;
+  padding: 1rem 2em;
+  margin: 1rem auto;
   width: auto;
+  background-color: #405f53;
+  color: white;
+  font-size: 120%;
+  border: none;
 }
 
-.formInputField, .formTextarea, label, #submitNewEvent {
+.formInputField, 
+.formTextarea, 
+label, 
+#submitNewEvent {
   display: block;
 }
 
@@ -112,7 +130,6 @@ input[type="submit"] {
 }
 
 .card h3 {
-  font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
   margin: 1rem;
 }
 
