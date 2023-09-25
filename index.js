@@ -13,6 +13,7 @@ const eventDetails = document.querySelector("#detailsModal")
 const displayDetails = (eventObj) => {
   eventDetails.innerHTML = "";
   const image = document.createElement("img")
+
   image.src = eventObj.image
   image.alt = eventObj.name
   const h3 = document.createElement("h3")
@@ -98,9 +99,26 @@ function submitNewEvent() {
   .catch(err => alert(err.message))
 }
 
-// function toggleAttending() {
+function toggleAttending(e) {
+  e.target.parentElement.querySelector('span').remove()
 
-// }
+  const iconSpan = document.createElement('span');
+
+  if (e.target.value === "interested") {
+    icon.textContent = '★'
+    icon.classList.add('interested')
+  } else if (e.target.value === "going") {
+    icon.textContent = '✔'
+    icon.classList.add('going')
+  } else if (e.target.value === "not going") {
+    icon.textcontent = '✘'
+    icon.classList.add('notGoing')
+  } else {
+    return;
+  }
+
+  e.target.parentElement.children[1].append(iconSpan)
+}
 
 function parseDate(dateString) {
   const split = dateString.split("-");
