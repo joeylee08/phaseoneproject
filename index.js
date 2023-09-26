@@ -264,5 +264,25 @@ function parseDate(dateString) {
   return `${getMonthStr(month)} ${day}, ${year}`;
 }
 
+function genHostCode() {
+  function getNum() {
+    return Math.floor(Math.random() * 10);
+  }
+  function getLetter() {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz";
+    let rIndex = Math.floor(Math.random() * 26);
+    return alphabet[rIndex];
+  }
+  let hostCode = ""
+  for (let i = 0; i < 3; i++) {
+    hostCode += getNum()
+  }
+  for (let i = 0; i < 3; i++) {
+    hostCode += getLetter()
+  }
+  return hostCode;
+}
+
+
 //function call
 getAllData()
