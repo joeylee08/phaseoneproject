@@ -10,6 +10,14 @@ const eventsContainer = document.querySelector("#eventsContainer")
 const eventDetails = document.querySelector("#detailsModal")
 
 // Kat code
+const personVsPeople = (eventObj) => {
+  if(eventObj.attendees === 1) {
+    return `${eventObj.attendees} person attending`
+  } else {
+    return `${eventObj.attendees} people attending`
+  }
+}
+
 // display event details
 const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
@@ -100,6 +108,21 @@ function checkLocalStorage(e, eventObj) {
 
     h3.append(iconSpan)
   }
+  
+  const attendSpan = document.createElement("span")
+  attendSpan.textContent = personVsPeople(eventObj)
+
+  dropdown.addEventListener("change", e => {
+    toggleAttending(e, eventObj)
+    if(e.target.value === "going") {
+      updateAttending(eventObj)
+    }
+  })
+
+  label.append(dropdown)
+  detailFooter.append(label, attendSpan)
+  eventDetails.append(image, h3, pDateLoc, pDescrip, detailFooter)
+  eventDetails.parentNode.classList.add('unhide')
 }
 
 // render card for event
@@ -145,7 +168,7 @@ function updateAttending(eventObj) {
   })
   .then(updatedEvent => {
     const attendSpan = document.querySelector(".detail-footer").lastChild
-    attendSpan.textContent = `${updatedEvent.attendees} people attending`
+    attendSpan.textContent = personVsPeople(updatedEvent)
   })
   .catch(err => alert(err.message))
 }
@@ -174,6 +197,11 @@ const createNewEventObj = (e) => {
   }
 }
 
+// sort incoming events by date before display
+const sortByDate = () => {
+
+}
+
 // Joseph code
 //add toggle visibility functionality to modal box
 createEventButton.addEventListener('click', () => {
@@ -199,7 +227,13 @@ function getAllData() {
       if (resp.ok) return resp.json()
       throw new Error('Failed to fetch event data.')
     })
-    .then(objArray => objArray.forEach(event => renderEvent(event)))
+    .then(objArray => {
+
+      objArray.sort((a, b) => {
+        return a.date.split("-").join("") - b.date.split("-").join("")
+      })
+      objArray.forEach(event => renderEvent(event))
+    })
     .catch(err => alert(err.message))
 }
 
