@@ -74,7 +74,7 @@ function displayDetailsLabel(e, eventObj) {
   going.textContent = "Going"
   notgoing.setAttribute("value", "notgoing")
   notgoing.textContent = "Not Interested"
-  attendSpan.textContent = `${eventObj.attendees} people attending`
+  attendSpan.textContent = personVsPeople(eventObj)
 
   dropdown.addEventListener("change", e => {
     toggleAttending(e, eventObj)
@@ -108,16 +108,6 @@ function checkLocalStorage(e, eventObj) {
 
     h3.append(iconSpan)
   }
-  
-  const attendSpan = document.createElement("span")
-  attendSpan.textContent = personVsPeople(eventObj)
-
-  dropdown.addEventListener("change", e => {
-    toggleAttending(e, eventObj)
-    if(e.target.value === "going") {
-      updateAttending(eventObj)
-    }
-  })
 
   label.append(dropdown)
   detailFooter.append(label, attendSpan)
@@ -198,8 +188,8 @@ const createNewEventObj = (e) => {
 }
 
 // sort incoming events by date before display
-const sortByDate = () => {
-
+const sortByDate = (a, b) => {
+  return a.date.split("-").join("") - b.date.split("-").join("")
 }
 
 // Joseph code
@@ -228,10 +218,7 @@ function getAllData() {
       throw new Error('Failed to fetch event data.')
     })
     .then(objArray => {
-
-      objArray.sort((a, b) => {
-        return a.date.split("-").join("") - b.date.split("-").join("")
-      })
+      objArray.sort((a, b) => sortByDate(a, b))
       objArray.forEach(event => renderEvent(event))
     })
     .catch(err => alert(err.message))
@@ -361,35 +348,39 @@ function editEvent(e, eventObj) {
   editForm.location.value = eventObj.location;
   editForm.desc.value = eventObj.description;
   editForm.image.value = eventObj.image;
-  editForm.attendees = eventObj.attendees;
 
-  editForm.addEventListener("submit", () => patchEvent(eventObj))
+  editForm.addEventListener("submit", (e) => patchEvent(e, eventObj))
 }
 
-function patchEvent(eventObj) {
+function patchEvent(e, eventObj) {
+  e.preventDefault()
   const id = eventObj.id;
 
-  const patched = {
-    image: editForm.image.value,
-    name: editForm.name.value,
-    date: editForm.date.value,
-    location: editForm.location.value,
-    description: editForm.desc.value,
-  }
+  if (validateFormData([editForm.image.value, editForm.name.value, editForm.date.value, editForm.location.value, editForm.desc.value])) {
+    const patched = {
+      image: editForm.image.value,
+      name: editForm.name.value,
+      date: editForm.date.value,
+      location: editForm.location.value,
+      description: editForm.desc.value,
+    }
 
-  fetch(`${fetchUrl}/${id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(patched)
-  })
-  .then(resp => {
-    if (resp.ok) return resp.json()
-    throw new Error('Failed to modify event data.')
-  })
-  .catch(err => alert(err.message))
+    fetch(`${fetchUrl}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(patched)
+    })
+    .then(resp => {
+      if (resp.ok) return resp.json()
+      throw new Error('Failed to modify event data.')
+    })
+    .catch(err => alert(err.message))
+  } else {
+    alert("Please finish editing event.")
+  }
 }
 
 //function call
