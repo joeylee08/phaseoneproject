@@ -7,7 +7,7 @@
       "date": "2023-10-15",
       "location": "Schrute Farms",
       "description": "Indulge in a unique countryside experience at Schrute Farms' Beet Wine Tasting event! Wander through the picturesque beet fields and savor a selection of handcrafted beet wines, expertly curated by Dwight Schrute himself. As you sip on the robust flavors, take in the rustic charm of the farm and discover the secrets behind this eccentric winemaking process. Don't forget to bring your own rain boots, as it might get a tad muddy. Limited parking available, so consider carpooling with fellow beet enthusiasts for an unforgettable day in the heart of the beet capital.",
-      "attendees": 0
+      "attendees": 1
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "date": "2023-11-12",
       "location": "Tulgey Wood",
       "description": "Venture into the whimsical Tulgey Wood and celebrate your Unbirthday at this extraordinary party! Hosted by the ever-mysterious Cheshire Cat, this event promises an afternoon of enchantment and merriment. Enjoy a delightful tea party under the sprawling trees, surrounded by mischievous creatures and playful chatter. Wear your most extravagant hat and bring an umbrella, for the weather can be as capricious as the inhabitants of Wonderland. Follow the White Rabbit's trail for directions to this fantastical gathering. It's sure to be a day you won't soon forget!",
-      "attendees": 0
+      "attendees": 1
     },
     {
       "id": 3,
@@ -79,7 +79,7 @@
       "date": "2023-09-30",
       "location": "The Shire",
       "description": "Join us for a Potato Extravaganza at Second Breakfast in the picturesque Shire! Indulge in a delectable spread of potato-based dishes, from crispy tater tots to creamy mashed potatoes. Don't forget to bring a hearty appetite for adventure! Limited seating available at Bag End, so arrive early to claim your spot and enjoy the rolling hills of the Shire.",
-      "attendees": 0
+      "attendees": 1
     },
     {
       "id": 10,
@@ -159,7 +159,7 @@
       "date": "2023-11-24",
       "location": "The MOOOON!",
       "description": "Embark on a once-in-a-lifetime journey to the Moon, where you'll experience the awe-inspiring beauty of lunar landscapes, float in zero gravity, and witness Earthrise from space. Our expert guides and cutting-edge spacecraft ensure a safe and unforgettable voyage. Don't miss this chance to make history and create lifelong memories. Reserve your seat now and be a part of this cosmic expedition! ",
-      "attendees": 1,
+      "attendees": 2,
       "id": 18
     }
   ]
