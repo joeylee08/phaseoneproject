@@ -31,7 +31,7 @@ The main page also features a "create event" button that opens a form modal into
 
 Code written, tested, and submitted by Kat T and Joseph L.
 
-Github: https://github.com/ktannehill
+Github: https://github.com/ktannehill <br>
 Github: https://github.com/joeylee08 
 
 We do not claim ownership over any of the fictional names or places used in this project. All rights belong to their respective creators. We express our appreciation for their inspiration.
