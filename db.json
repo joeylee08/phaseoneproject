@@ -7,7 +7,7 @@
       "date": "2023-10-15",
       "location": "Schrute Farms",
       "description": "Indulge in a unique countryside experience at Schrute Farms' Beet Wine Tasting event! Wander through the picturesque beet fields and savor a selection of handcrafted beet wines, expertly curated by Dwight Schrute himself. As you sip on the robust flavors, take in the rustic charm of the farm and discover the secrets behind this eccentric winemaking process. Don't forget to bring your own rain boots, as it might get a tad muddy. Limited parking available, so consider carpooling with fellow beet enthusiasts for an unforgettable day in the heart of the beet capital.",
-      "attendees": 2
+      "attendees": 0
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "date": "2023-11-12",
       "location": "Tulgey Wood",
       "description": "Venture into the whimsical Tulgey Wood and celebrate your Unbirthday at this extraordinary party! Hosted by the ever-mysterious Cheshire Cat, this event promises an afternoon of enchantment and merriment. Enjoy a delightful tea party under the sprawling trees, surrounded by mischievous creatures and playful chatter. Wear your most extravagant hat and bring an umbrella, for the weather can be as capricious as the inhabitants of Wonderland. Follow the White Rabbit's trail for directions to this fantastical gathering. It's sure to be a day you won't soon forget!",
-      "attendees": 5
+      "attendees": 0
     },
     {
       "id": 3,
@@ -34,7 +34,7 @@
       "date": "2023-10-08",
       "location": "Isla Nublar",
       "description": "Embark on a prehistoric adventure with a picnic on the awe-inspiring Isla Nublar! Surrounded by towering ancient giants, enjoy a leisurely afternoon of fossil-hunting, guided tours, and even the chance to interact with some of the friendlier dinosaurs. Please be sure to bring a sturdy umbrella, as the weather on the island can be as unpredictable as a velociraptor's mood. Arrive by helicopter for a bird's-eye view of this astonishing ecosystem, and let the wonders of the past transport you to a world long gone but never forgotten.",
-      "attendees": 0
+      "attendees": 1
     },
     {
       "id": 5,
@@ -152,6 +152,15 @@
       "location": "Serenity, the Black",
       "description": "Get ready for a shindig aboard the legendary spaceship Serenity, cruising through the Black! Join the crew for a night of dancing, live music, and a hearty spread of frontier-style cuisine. Dress in your finest threads or go full space cowboy for the costume contest. Keep an eye on your belongings, though; Jayne Cobb has a knack for 'borrowing' shiny things. Limited shuttle service available for guests from nearby planets, so RSVP early to secure your spot in the Black.",
       "attendees": 0
+    },
+    {
+      "image": "https://www.seti.org/sites/default/files/2020-10/earth-view-from-moon-perspective-footprints-1400px.jpg",
+      "name": "Trip to the Moon",
+      "date": "2023-11-24",
+      "location": "The MOOOON!",
+      "description": "Embark on a once-in-a-lifetime journey to the Moon, where you'll experience the awe-inspiring beauty of lunar landscapes, float in zero gravity, and witness Earthrise from space. Our expert guides and cutting-edge spacecraft ensure a safe and unforgettable voyage. Don't miss this chance to make history and create lifelong memories. Reserve your seat now and be a part of this cosmic expedition! ",
+      "attendees": 1,
+      "id": 18
     }
   ]
 }
