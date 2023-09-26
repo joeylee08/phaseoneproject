@@ -9,6 +9,14 @@ const eventDetails = document.querySelector("#detailsModal")
 
 
 // Kat code
+const personVsPeople = (eventObj) => {
+  if(eventObj.attendees === 1) {
+    return `${eventObj.attendees} person attending`
+  } else {
+    return `${eventObj.attendees} people attending`
+  }
+}
+
 // display event details
 const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
@@ -67,7 +75,7 @@ const displayDetails = (e, eventObj) => {
   }
   
   const attendSpan = document.createElement("span")
-  attendSpan.textContent = `${eventObj.attendees} people attending`
+  attendSpan.textContent = personVsPeople(eventObj)
 
   dropdown.addEventListener("change", e => {
     toggleAttending(e, eventObj)
@@ -118,7 +126,7 @@ function updateAttending(eventObj) {
   })
   .then(updatedEvent => {
     const attendSpan = document.querySelector(".detail-footer").lastChild
-    attendSpan.textContent = `${updatedEvent.attendees} people attending`
+    attendSpan.textContent = personVsPeople(updatedEvent)
   })
   .catch(err => alert(err.message))
 }
