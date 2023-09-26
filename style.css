@@ -134,6 +134,10 @@ label,
   margin: 1rem;
 }
 
+#detailsModal h3 {
+  height: 1.5rem;
+}
+
 .modal-content img {
   width: 100%;
   height: 250px;
@@ -143,16 +147,19 @@ label,
 .interested {
   font-size: 1.5rem;
   color: orange;
+  line-height: 0rem;
 }
 
 .going {
   font-size: 1.5rem;
   color: green;
+  line-height: 0rem;
 }
 
 .notgoing {
   font-size: 1.5rem;
   color: red;
+  line-height: 0rem;
 }
 
 .detail-footer {

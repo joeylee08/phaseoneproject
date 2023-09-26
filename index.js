@@ -140,7 +140,7 @@ eventForm.addEventListener('submit', (e) => {
   e.preventDefault();
   submitNewEvent();
   alert("Thanks for submitting your event!");
-  modalBox.classList.add('hidden');
+  modalBox.classList.remove('unhide');
   eventForm.reset();
 })
 
@@ -161,7 +161,8 @@ function submitNewEvent() {
     name: eventForm.name.value,
     date: eventForm.date.value,
     location: eventForm.location.value,
-    description: eventForm.desc.value
+    description: eventForm.desc.value,
+    attendees: 0
   }
   fetch(fetchUrl, {
     method: "POST",
