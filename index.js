@@ -11,7 +11,7 @@ const eventDetails = document.querySelector("#detailsModal")
 // Kat code
 // display event details
 const displayDetails = (e, eventObj) => {
-  eventDetails.innerHTML = "";
+  eventDetails.innerHTML = ""; //display card
   const image = document.createElement("img")
 
   image.src = eventObj.image
@@ -26,7 +26,7 @@ const displayDetails = (e, eventObj) => {
   detailFooter.setAttribute("class", "detail-footer")
 
   // attending drop down
-  const label = document.createElement("label")
+  const label = document.createElement("label") //display dropdown
   label.setAttribute("name", "attending")
   const dropdown = document.createElement("select")
   dropdown.setAttribute("name", "attending")
@@ -45,7 +45,7 @@ const displayDetails = (e, eventObj) => {
 
   dropdown.append(select, interested, going, notgoing)
 
-  if (localStorage.getItem(eventObj.id) !== 0) {
+  if (localStorage.getItem(eventObj.id) !== 0) { //check local storage
     const iconSpan = document.createElement('span');
 
     if (localStorage.getItem(eventObj.id) === '1') {
@@ -66,7 +66,7 @@ const displayDetails = (e, eventObj) => {
     h3.append(iconSpan)
   }
   
-  const attendSpan = document.createElement("span")
+  const attendSpan = document.createElement("span") //create attending counter
   attendSpan.textContent = `${eventObj.attendees} people attending`
 
   dropdown.addEventListener("change", e => {
@@ -96,7 +96,7 @@ const renderEvent = (eventObj) => {
   localStorage.setItem(eventObj.id, "0")
 
   eventCard.addEventListener("click", (e) => displayDetails(e, eventObj))
-
+  eventCard.addEventListener("contextmenu", (e) => validateEditor(e, eventObj))
   eventsContainer.append(eventCard)
 }
 
@@ -283,6 +283,16 @@ function genHostCode() {
   return hostCode;
 }
 
+function validateEditor(e, eventObj) {
+  e.preventDefault()
+  const validate = prompt("What is your host key?", "abc123");
+  if (validate !== eventObj.hostCode) return;
+  editEvent()
+}
+
+function editEvent() {
+  alert("poo")
+}
 
 //function call
 getAllData()
