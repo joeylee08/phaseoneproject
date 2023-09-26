@@ -154,6 +154,11 @@ const createNewEventObj = (e) => {
   }
 }
 
+// sort incoming events by date before display
+const sortByDate = () => {
+
+}
+
 // Joseph code
 //add toggle visibility functionality to modal box
 createEventButton.addEventListener('click', () => {
@@ -179,7 +184,13 @@ function getAllData() {
       if (resp.ok) return resp.json()
       throw new Error('Failed to fetch event data.')
     })
-    .then(objArray => objArray.forEach(event => renderEvent(event)))
+    .then(objArray => {
+
+      objArray.sort((a, b) => {
+        return a.date.split("-").join("") - b.date.split("-").join("")
+      })
+      objArray.forEach(event => renderEvent(event))
+    })
     .catch(err => alert(err.message))
 }
 
