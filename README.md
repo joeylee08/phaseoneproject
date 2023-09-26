@@ -1,1 +1,1 @@
-#Dynamic Community Events Calendar
+# Dynamic Community Events Calendar
