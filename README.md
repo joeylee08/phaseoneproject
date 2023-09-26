@@ -1,5 +1,4 @@
 # Dynamic Community Events Calendar
-Created by Kat T and Joseph L
 
 ![](https://github.com/joeylee08/phaseoneproject/blob/additional_stuffs/phaseoneprojectgif.gif)
 
