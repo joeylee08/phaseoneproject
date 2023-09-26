@@ -3,48 +3,82 @@ const createEventButton = document.querySelector('#eventCreateBtn');
 const modalBox = document.querySelector('.modal');
 const modalContent = document.querySelector('div.modal-content');
 const eventForm = document.querySelector('#eventCreateForm');
+const editModal = document.querySelector('#eventEditModal');
+const editForm = document.querySelector('#eventEditForm');
 const fetchUrl = 'http://localhost:3000/events';
 const eventsContainer = document.querySelector("#eventsContainer")
 const eventDetails = document.querySelector("#detailsModal")
 
-
 // Kat code
 // display event details
 const displayDetails = (e, eventObj) => {
-  eventDetails.innerHTML = ""; //display card
+  eventDetails.innerHTML = "";
+
+  let detailFooter;
+  let h3;
+  let interested;
+  let going;
+  let notgoing;
+
+  displayDetailsCard(e, eventObj)
+  displayDetailsLabel(e, eventObj)
+  checkLocalStorage(e, eventObj)
+  
+  eventDetails.parentNode.classList.add('unhide')
+}
+
+function displayDetailsCard(e, eventObj) {
   const image = document.createElement("img")
+  const pDateLoc = document.createElement("p")
+  const pDescrip = document.createElement("p")
+
+  h3 = document.createElement("h3")
+  detailFooter = document.createElement("div")
 
   image.src = eventObj.image
   image.alt = eventObj.name
-  const h3 = document.createElement("h3")
-  h3.textContent = eventObj.name
-  const pDateLoc = document.createElement("p")
   pDateLoc.textContent = `${parseDate(eventObj.date)}, ${eventObj.location}`
-  const pDescrip = document.createElement("p")
   pDescrip.textContent = eventObj.description
-  const detailFooter = document.createElement("div")
+  h3.textContent = eventObj.name
   detailFooter.setAttribute("class", "detail-footer")
 
-  // attending drop down
+  eventDetails.append(image, h3, pDateLoc, pDescrip, detailFooter)
+  eventDetails.parentNode.classList.add('unhide')
+}
+
+function displayDetailsLabel(e, eventObj) {
   const label = document.createElement("label") //display dropdown
-  label.setAttribute("name", "attending")
   const dropdown = document.createElement("select")
-  dropdown.setAttribute("name", "attending")
   const select = document.createElement("option")
+  const attendSpan = document.createElement("span") 
+
+  interested = document.createElement("option")
+  going = document.createElement("option")
+  notgoing = document.createElement("option")
+  
+  label.setAttribute("name", "attending")
+  dropdown.setAttribute("name", "attending")
   select.setAttribute("value", "")
   select.textContent = "Select One"
-  const interested = document.createElement("option")
   interested.setAttribute("value", "interested")
   interested.textContent = "Interested"
-  const going = document.createElement("option")
   going.setAttribute("value", "going")
   going.textContent = "Going"
-  const notgoing = document.createElement("option")
   notgoing.setAttribute("value", "notgoing")
   notgoing.textContent = "Not Interested"
+  attendSpan.textContent = `${eventObj.attendees} people attending`
 
+  dropdown.addEventListener("change", e => {
+    toggleAttending(e, eventObj)
+    if (e.target.value === "going") updateAttending(eventObj)
+  })
+  
   dropdown.append(select, interested, going, notgoing)
+  label.append(dropdown)
+  detailFooter.append(label, attendSpan)
+}
 
+function checkLocalStorage(e, eventObj) {
   if (localStorage.getItem(eventObj.id) !== 0) { //check local storage
     const iconSpan = document.createElement('span');
 
@@ -63,40 +97,33 @@ const displayDetails = (e, eventObj) => {
       iconSpan.textContent = ' ✘'
       iconSpan.classList.add('notgoing')
     }
+
     h3.append(iconSpan)
   }
-  
-  const attendSpan = document.createElement("span") //create attending counter
-  attendSpan.textContent = `${eventObj.attendees} people attending`
-
-  dropdown.addEventListener("change", e => {
-    toggleAttending(e, eventObj)
-    if(e.target.value === "going") {
-      updateAttending(eventObj)
-    }
-  })
-
-  label.append(dropdown)
-  detailFooter.append(label, attendSpan)
-  eventDetails.append(image, h3, pDateLoc, pDescrip, detailFooter)
-  eventDetails.parentNode.classList.add('unhide')
 }
 
 // render card for event
 const renderEvent = (eventObj) => {
-  const eventCard = document.createElement("div")
-  eventCard.setAttribute("class", "card")
-  const image = document.createElement("img")
+  const eventCard = document.createElement("div");
+  const image = document.createElement("img");
+  const h3 = document.createElement("h3");
+  const tooltip = document.createElement("span");
+  
   image.src = eventObj.image
   image.alt = eventObj.name
-  const h3 = document.createElement("h3")
   h3.textContent = eventObj.name
-  eventCard.append(image, h3)
+  tooltip.textContent = "Right click to edit event."
+  tooltip.classList.add("tooltiptext")
+
+  eventCard.setAttribute("class", "card")
+  eventCard.classList.add('tooltip')
+  eventCard.append(image, h3, tooltip)
 
   localStorage.setItem(eventObj.id, "0")
 
   eventCard.addEventListener("click", (e) => displayDetails(e, eventObj))
   eventCard.addEventListener("contextmenu", (e) => validateEditor(e, eventObj))
+  
   eventsContainer.append(eventCard)
 }
 
@@ -128,17 +155,18 @@ const validateFormData = (valuesArr) => {
 }
 
 const createNewEventObj = (e) => {
-  if(validateFormData([e.target.image.value, e.target.name.value, e.target.date.value, e.target.location.value, e.target.desc.value])) {
+  if (validateFormData([e.target.image.value, e.target.name.value, e.target.date.value, e.target.location.value, e.target.desc.value])) {
     const eventObj = {
       image: eventForm.image.value,
       name: eventForm.name.value,
       date: eventForm.date.value,
       location: eventForm.location.value,
       description: eventForm.desc.value,
+      hostCode: genHostCode(),
       attendees: 0
     }
     submitNewEvent(eventObj);
-    alert("Thanks for submitting your event!");
+    alert(`Thanks for submitting your event! Your host code is ${eventObj.hostCode}. You need this code if you want to edit your event. Thanks!`);
     modalBox.classList.remove('unhide');
     eventForm.reset();
   } else {
@@ -196,6 +224,7 @@ function toggleAttending(e, eventObj) {
   if (eventDetails.querySelector('h3 span')) {
     eventDetails.querySelector('h3 span').remove()
   }
+
   const iconSpan = document.createElement('span');
 
   if (e.target.value === "interested") {
@@ -285,13 +314,49 @@ function genHostCode() {
 
 function validateEditor(e, eventObj) {
   e.preventDefault()
-  const validate = prompt("What is your host key?", "abc123");
+  const validate = prompt("What is your host code?", "abc123");
   if (validate !== eventObj.hostCode) return;
-  editEvent()
+  editEvent(e, eventObj)
 }
 
-function editEvent() {
-  alert("poo")
+function editEvent(e, eventObj) {
+
+  editModal.parentNode.classList.add('unhide')
+
+  editForm.name.value = eventObj.name;
+  editForm.date.value = eventObj.date;
+  editForm.location.value = eventObj.location;
+  editForm.desc.value = eventObj.description;
+  editForm.image.value = eventObj.image;
+  editForm.attendees = eventObj.attendees;
+
+  editForm.addEventListener("submit", () => patchEvent(eventObj))
+}
+
+function patchEvent(eventObj) {
+  const id = eventObj.id;
+
+  const patched = {
+    image: editForm.image.value,
+    name: editForm.name.value,
+    date: editForm.date.value,
+    location: editForm.location.value,
+    description: editForm.desc.value,
+  }
+
+  fetch(`${fetchUrl}/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(patched)
+  })
+  .then(resp => {
+    if (resp.ok) return resp.json()
+    throw new Error('Failed to modify event data.')
+  })
+  .catch(err => alert(err.message))
 }
 
 //function call

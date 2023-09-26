@@ -4,12 +4,11 @@
       "id": 1,
       "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       "name": "Beet Wine Tasting",
-      "date": "2023-10-15",
+      "date": "2023-11-24",
       "location": "Schrute Farms",
       "description": "Indulge in a unique countryside experience at Schrute Farms' Beet Wine Tasting event! Wander through the picturesque beet fields and savor a selection of handcrafted beet wines, expertly curated by Dwight Schrute himself. As you sip on the robust flavors, take in the rustic charm of the farm and discover the secrets behind this eccentric winemaking process. Don't forget to bring your own rain boots, as it might get a tad muddy. Limited parking available, so consider carpooling with fellow beet enthusiasts for an unforgettable day in the heart of the beet capital.",
-      "attendees": 1,
+      "attendees": 2,
       "hostCode": "216yvk"
-      
     },
     {
       "id": 2,
@@ -18,7 +17,7 @@
       "date": "2023-11-12",
       "location": "Tulgey Wood",
       "description": "Venture into the whimsical Tulgey Wood and celebrate your Unbirthday at this extraordinary party! Hosted by the ever-mysterious Cheshire Cat, this event promises an afternoon of enchantment and merriment. Enjoy a delightful tea party under the sprawling trees, surrounded by mischievous creatures and playful chatter. Wear your most extravagant hat and bring an umbrella, for the weather can be as capricious as the inhabitants of Wonderland. Follow the White Rabbit's trail for directions to this fantastical gathering. It's sure to be a day you won't soon forget!",
-      "attendees": 1,
+      "attendees": 12,
       "hostCode": "128xcg"
     },
     {
@@ -28,7 +27,7 @@
       "date": "2023-09-30",
       "location": "Hogwarts School of Witchcraft and Wizardry",
       "description": "Step into the magical world of Hogwarts and join us for a spellbinding lesson in Potions and Charms! Led by the esteemed Professor Snape, this class offers a hands-on experience in brewing potions and mastering enchantments. All necessary materials will be provided, so simply bring your eagerness to learn and a keen sense of curiosity. For a truly magical arrival, consider taking the Hogwarts Express. Don your robes and prepare for a day of enchantment and wizardry!",
-      "attendees": 2,
+      "attendees": 4,
       "hostCode": "717xet"
     },
     {
@@ -60,7 +59,6 @@
       "description": "Step through the wardrobe and into the enchanting world of Narnia for the Winter Festival! The land is blanketed in eternal snow, creating a picturesque backdrop for a day of magical festivities. Join us for snowball fights, ice skating on the frozen river, and warm cups of spiced hot cocoa by the lamppost. As you explore the wondrous realm, keep an eye out for visits from the talking animals and perhaps even a sighting of the mighty Aslan. Remember to bundle up warmly, for in Narnia, winter never ends. Follow the whispers of the wind for directions to this extraordinary festival!",
       "attendees": 0,
       "hostCode": "051exw"
-
     },
     {
       "id": 7,
@@ -171,16 +169,6 @@
       "description": "Get ready for a shindig aboard the legendary spaceship Serenity, cruising through the Black! Join the crew for a night of dancing, live music, and a hearty spread of frontier-style cuisine. Dress in your finest threads or go full space cowboy for the costume contest. Keep an eye on your belongings, though; Jayne Cobb has a knack for 'borrowing' shiny things. Limited shuttle service available for guests from nearby planets, so RSVP early to secure your spot in the Black.",
       "attendees": 0,
       "hostCode": "708wkx"
-    },
-    {
-      "image": "https://www.seti.org/sites/default/files/2020-10/earth-view-from-moon-perspective-footprints-1400px.jpg",
-      "name": "Trip to the Moon",
-      "date": "2023-11-24",
-      "location": "The MOOOON!",
-      "description": "Embark on a once-in-a-lifetime journey to the Moon, where you'll experience the awe-inspiring beauty of lunar landscapes, float in zero gravity, and witness Earthrise from space. Our expert guides and cutting-edge spacecraft ensure a safe and unforgettable voyage. Don't miss this chance to make history and create lifelong memories. Reserve your seat now and be a part of this cosmic expedition! ",
-      "attendees": 2,
-      "id": 18,
-      "hostCode": "697sjt"
     }
   ]
 }
