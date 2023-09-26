@@ -320,7 +320,6 @@ function validateEditor(e, eventObj) {
 }
 
 function editEvent(e, eventObj) {
-
   editModal.parentNode.classList.add('unhide')
 
   editForm.name.value = eventObj.name;
