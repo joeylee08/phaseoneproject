@@ -9,7 +9,7 @@ const eventDetails = document.querySelector("#detailsModal")
 
 
 // Kat code
-  // display event details
+// display event details
 const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
   const image = document.createElement("img")
@@ -82,7 +82,7 @@ const displayDetails = (e, eventObj) => {
   eventDetails.parentNode.classList.add('unhide')
 }
 
-  // render card for event
+// render card for event
 const renderEvent = (eventObj) => {
   const eventCard = document.createElement("div")
   eventCard.setAttribute("class", "card")
@@ -123,6 +123,29 @@ function updateAttending(eventObj) {
   .catch(err => alert(err.message))
 }
 
+const validateFormData = (valuesArr) => {
+  return valuesArr.every(el => el.trim() !== "")
+}
+
+const createNewEventObj = (e) => {
+  if(validateFormData([e.target.image.value, e.target.name.value, e.target.date.value, e.target.location.value, e.target.desc.value])) {
+    const eventObj = {
+      image: eventForm.image.value,
+      name: eventForm.name.value,
+      date: eventForm.date.value,
+      location: eventForm.location.value,
+      description: eventForm.desc.value,
+      attendees: 0
+    }
+    submitNewEvent(eventObj);
+    alert("Thanks for submitting your event!");
+    modalBox.classList.remove('unhide');
+    eventForm.reset();
+  } else {
+    alert("Please complete event submission.")
+  }
+}
+
 // Joseph code
 //add toggle visibility functionality to modal box
 createEventButton.addEventListener('click', () => {
@@ -138,10 +161,7 @@ document.addEventListener('mousedown', (e) => {
 
 eventForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  submitNewEvent();
-  alert("Thanks for submitting your event!");
-  modalBox.classList.remove('unhide');
-  eventForm.reset();
+  createNewEventObj(e)
 })
 
 //helper functions
@@ -155,15 +175,7 @@ function getAllData() {
     .catch(err => alert(err.message))
 }
 
-function submitNewEvent() {
-  const eventObj = {
-    image: eventForm.image.value,
-    name: eventForm.name.value,
-    date: eventForm.date.value,
-    location: eventForm.location.value,
-    description: eventForm.desc.value,
-    attendees: 0
-  }
+function submitNewEvent(eventObj) {
   fetch(fetchUrl, {
     method: "POST",
     headers: {
