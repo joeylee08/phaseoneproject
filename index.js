@@ -59,7 +59,7 @@ function displayDetailsLabel(e, eventObj) {
   const dropdown = document.createElement("select")
   const select = document.createElement("option")
   const attendSpan = document.createElement("span") 
-
+  
   interested = document.createElement("option")
   going = document.createElement("option")
   notgoing = document.createElement("option")
@@ -75,7 +75,7 @@ function displayDetailsLabel(e, eventObj) {
   notgoing.setAttribute("value", "notgoing")
   notgoing.textContent = "Not Interested"
   attendSpan.textContent = personVsPeople(eventObj)
-
+  
   dropdown.addEventListener("change", e => {
     toggleAttending(e, eventObj)
     if (e.target.value === "going") updateAttending(eventObj)
@@ -109,10 +109,6 @@ function checkLocalStorage(e, eventObj) {
     h3.append(iconSpan)
   }
 
-  label.append(dropdown)
-  detailFooter.append(label, attendSpan)
-  eventDetails.append(image, h3, pDateLoc, pDescrip, detailFooter)
-  eventDetails.parentNode.classList.add('unhide')
 }
 
 // render card for event
@@ -355,7 +351,7 @@ function editEvent(e, eventObj) {
 function patchEvent(e, eventObj) {
   e.preventDefault()
   const id = eventObj.id;
-
+  
   if (validateFormData([editForm.image.value, editForm.name.value, editForm.date.value, editForm.location.value, editForm.desc.value])) {
     const patched = {
       image: editForm.image.value,
@@ -364,7 +360,7 @@ function patchEvent(e, eventObj) {
       location: editForm.location.value,
       description: editForm.desc.value,
     }
-
+    
     fetch(`${fetchUrl}/${id}`, {
       method: "PATCH",
       headers: {
@@ -376,6 +372,11 @@ function patchEvent(e, eventObj) {
     .then(resp => {
       if (resp.ok) return resp.json()
       throw new Error('Failed to modify event data.')
+  })
+  .then(patchedObj => {
+      displayDetails(e, patchedObj)
+      editModal.parentNode.classList.remove('unhide')
+      editForm.reset();
     })
     .catch(err => alert(err.message))
   } else {
