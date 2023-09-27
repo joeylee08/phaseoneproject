@@ -8,16 +8,9 @@ const editForm = document.querySelector('#eventEditForm');
 const fetchUrl = 'http://localhost:3000/events';
 const eventsContainer = document.querySelector("#eventsContainer")
 const eventDetails = document.querySelector("#detailsModal")
+const footer = document.createElement('footer')
 
 // Kat code
-const personVsPeople = (eventObj) => {
-  if(eventObj.attendees === 1) {
-    return `${eventObj.attendees} person attending`
-  } else {
-    return `${eventObj.attendees} people attending`
-  }
-}
-
 // display event details
 const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
@@ -59,7 +52,7 @@ function displayDetailsLabel(e, eventObj) {
   const dropdown = document.createElement("select")
   const select = document.createElement("option")
   const attendSpan = document.createElement("span") 
-  
+
   interested = document.createElement("option")
   going = document.createElement("option")
   notgoing = document.createElement("option")
@@ -74,8 +67,8 @@ function displayDetailsLabel(e, eventObj) {
   going.textContent = "Going"
   notgoing.setAttribute("value", "notgoing")
   notgoing.textContent = "Not Interested"
-  attendSpan.textContent = personVsPeople(eventObj)
-  
+  attendSpan.textContent = `${eventObj.attendees} people attending`
+
   dropdown.addEventListener("change", e => {
     toggleAttending(e, eventObj)
     if (e.target.value === "going") updateAttending(eventObj)
@@ -108,7 +101,6 @@ function checkLocalStorage(e, eventObj) {
 
     h3.append(iconSpan)
   }
-
 }
 
 // render card for event
@@ -154,7 +146,7 @@ function updateAttending(eventObj) {
   })
   .then(updatedEvent => {
     const attendSpan = document.querySelector(".detail-footer").lastChild
-    attendSpan.textContent = personVsPeople(updatedEvent)
+    attendSpan.textContent = `${updatedEvent.attendees} people attending`
   })
   .catch(err => alert(err.message))
 }
@@ -183,11 +175,6 @@ const createNewEventObj = (e) => {
   }
 }
 
-// sort incoming events by date before display
-const sortByDate = (a, b) => {
-  return a.date.split("-").join("") - b.date.split("-").join("")
-}
-
 // Joseph code
 //add toggle visibility functionality to modal box
 createEventButton.addEventListener('click', () => {
@@ -213,10 +200,7 @@ function getAllData() {
       if (resp.ok) return resp.json()
       throw new Error('Failed to fetch event data.')
     })
-    .then(objArray => {
-      objArray.sort((a, b) => sortByDate(a, b))
-      objArray.forEach(event => renderEvent(event))
-    })
+    .then(objArray => objArray.forEach(event => renderEvent(event)))
     .catch(err => alert(err.message))
 }
 
@@ -344,45 +328,50 @@ function editEvent(e, eventObj) {
   editForm.location.value = eventObj.location;
   editForm.desc.value = eventObj.description;
   editForm.image.value = eventObj.image;
+  editForm.attendees = eventObj.attendees;
 
-  editForm.addEventListener("submit", (e) => patchEvent(e, eventObj))
+  editForm.addEventListener("submit", () => patchEvent(eventObj))
 }
 
-function patchEvent(e, eventObj) {
-  e.preventDefault()
+function patchEvent(eventObj) {
   const id = eventObj.id;
-  
-  if (validateFormData([editForm.image.value, editForm.name.value, editForm.date.value, editForm.location.value, editForm.desc.value])) {
-    const patched = {
-      image: editForm.image.value,
-      name: editForm.name.value,
-      date: editForm.date.value,
-      location: editForm.location.value,
-      description: editForm.desc.value,
-    }
-    
-    fetch(`${fetchUrl}/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(patched)
-    })
-    .then(resp => {
-      if (resp.ok) return resp.json()
-      throw new Error('Failed to modify event data.')
-  })
-  .then(patchedObj => {
-      displayDetails(e, patchedObj)
-      editModal.parentNode.classList.remove('unhide')
-      editForm.reset();
-    })
-    .catch(err => alert(err.message))
-  } else {
-    alert("Please finish editing event.")
+
+  const patched = {
+    image: editForm.image.value,
+    name: editForm.name.value,
+    date: editForm.date.value,
+    location: editForm.location.value,
+    description: editForm.desc.value,
   }
+
+  fetch(`${fetchUrl}/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(patched)
+  })
+  .then(resp => {
+    if (resp.ok) return resp.json()
+    throw new Error('Failed to modify event data.')
+  })
+  .catch(err => alert(err.message))
+
+  editForm.classList.remove("unhide")
 }
+
+const quotes = [['The real voyage of discovery consists not in seeking new landscapes but in having new eyes.', '-Marcel Proust'], ['It is only with the heart that one can see rightly; what is essential is invisible to the eye.', '-Antoine de Saint-Exupery'], ['There is some good in this world, and it’s worth fighting for.', '-J.R.R. Tolkien'], ['Beware; for I am fearless, and therefore powerful.', '-Mary Shelley'], ['The only way out of the labyrinth of suffering is to forgive.', '-John Green'], ['We accept the love we think we deserve.', '-Stephen Chobosky'], ['There are years that ask questions and years that answer.', '-Zora Neale Hurston'], ['It is nothing to die; it is dreadful not to live.', '-Victor Hugo'], ['Why, sometimes, I’ve believed as many as six impossible things before breakfast.', '-Lewis Carroll'], ['It is our choices, Harry, that show what we truly are, far more than our abilities.', '-J.K. Rowling'], ['There are some things you learn best in calm, and some in storm.', '-Willa Cather'], ['The world breaks everyone, and afterward, many are strong at the broken places.', '-Ernest Hemingway'], ['It doesn’t matter who you are or what you look like, so long as somebody loves you.', '-Roald Dahl'], ['And, when you want something, all the universe conspires in helping you to achieve it.', '-Paolo Cohelo'], ['There is always something left to love.', '-Gabriel Garcia Marquez'], ['Love is the longing for the half of ourselves we have lost.', '-Milan Kundera'], ['For you, a thousand times over.', '-Khaled Hosseini'], ['All human wisdom is summed up in these two words – \‘Wait and hope.', '-Alexandre Dumas'], ['What does the brain matter compared with the heart?', '-Virginia Woolf'], ['‘But man is not made for defeat,’ he said. ‘A man can be destroyed but not defeated.\'', '-Ernest Hemingway']];
+const quote = document.querySelector('h3#quote');
+const author = document.querySelector('p#author');
+
+function genRandomQuote() {
+  const rIndex = Math.floor(Math.random() * 20);
+  quote.textContent = quotes[rIndex][0];
+  author.textContent = quotes[rIndex][1]
+}
+
+genRandomQuote();
 
 //function call
 getAllData()

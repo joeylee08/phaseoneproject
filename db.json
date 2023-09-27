@@ -66,8 +66,8 @@
       "name": "Under the Sea Music Festival",
       "date": "2023-11-25",
       "location": "Atlantis",
-      "description": "Dive into the rhythm at the Under the Sea Music Festival hosted by King Triton in Atlantis! Get ready for a concert like no other, featuring performances by merfolk and sea creatures. Bring your own waterproof musical instruments to join in the fun! Limited parking available for seahorses, so consider carpooling with fellow ocean enthusiasts.",
-      "attendees": 1,
+      "description": "Hello! UNDER THE SEA!",
+      "attendees": 0,
       "hostCode": "182rxq"
     },
     {
@@ -87,7 +87,7 @@
       "date": "2023-09-30",
       "location": "The Shire",
       "description": "Join us for a Potato Extravaganza at Second Breakfast in the picturesque Shire! Indulge in a delectable spread of potato-based dishes, from crispy tater tots to creamy mashed potatoes. Don't forget to bring a hearty appetite for adventure! Limited seating available at Bag End, so arrive early to claim your spot and enjoy the rolling hills of the Shire.",
-      "attendees": 2,
+      "attendees": 3,
       "hostCode": "400und"
     },
     {
@@ -107,7 +107,7 @@
       "date": "2023-11-05",
       "location": "Cinderella's Castle, Fantasyland",
       "description": "Step into a world of enchantment at the Enchanted Ball held in the iconic Cinderella's Castle! Dance the night away in a grand ballroom adorned with crystal chandeliers and magical decorations. Elegant gowns and dashing suits are a must! The evening promises live music, delectable treats, and a chance to meet Cinderella herself. But remember, as the clock strikes midnight, the magic will fade, so be sure to depart in a timely manner. Limited carriage service available for a fairytale exit.",
-      "attendees": 2,
+      "attendees": 1,
       "hostCode": "413nwz"
     },
     {
@@ -137,7 +137,7 @@
       "date": "2023-11-10",
       "location": "Mos Eisley, Tatooine",
       "description": "Embark on an intergalactic adventure at the Galactic Celebration held at the legendary Mos Eisley Cantina on Tatooine! Join fellow rebels, Jedi, and citizens of the galaxy for a night of music, dancing, and exotic libations. Dress as your favorite Star Wars character and participate in the costume contest for a chance to win credits and prizes. Watch out for any unexpected bounty hunters! Limited docking available for starships, so plan your arrival accordingly.",
-      "attendees": 0,
+      "attendees": 1,
       "hostCode": "197cal"
     },
     {
@@ -169,6 +169,16 @@
       "description": "Get ready for a shindig aboard the legendary spaceship Serenity, cruising through the Black! Join the crew for a night of dancing, live music, and a hearty spread of frontier-style cuisine. Dress in your finest threads or go full space cowboy for the costume contest. Keep an eye on your belongings, though; Jayne Cobb has a knack for 'borrowing' shiny things. Limited shuttle service available for guests from nearby planets, so RSVP early to secure your spot in the Black.",
       "attendees": 0,
       "hostCode": "708wkx"
+    },
+    {
+      "image": "https://www.seti.org/sites/default/files/2020-10/earth-view-from-moon-perspective-footprints-1400px.jpg",
+      "name": "Trip to the Moon",
+      "date": "2023-11-24",
+      "location": "The MOOOON!",
+      "description": "Embark on a once-in-a-lifetime journey to the Moon, where you'll experience the awe-inspiring beauty of lunar landscapes, float in zero gravity, and witness Earthrise from space. Our expert guides and cutting-edge spacecraft ensure a safe and unforgettable voyage. Don't miss this chance to make history and create lifelong memories. Reserve your seat now and be a part of this cosmic expedition! Do it! Do it neeeooww! Dyaaagh!",
+      "hostCode": "179hwx",
+      "attendees": 3,
+      "id": 18
     }
   ]
 }
