@@ -187,17 +187,21 @@ input#editEvent {
   margin: 1rem auto 1rem auto;
 }
 
+.tooltip {
+  position: relative;
+}
+
 .tooltiptext {
   visibility: hidden;
-  width: 120px;
-  background-color: #997200;
+  background-color: rgba(58, 46, 14, 0.6);
   color: #fff;
   text-align: center;
-  padding: 5px;
+  font-size: 0.75rem;
+  padding: 0.5rem;
   border-radius: 2px;
-  position: relative;
-  left: 30%;
-  bottom: 80%;
+  position: absolute;
+  right: 5%;
+  top: 5%;
   z-index: 1;
 }
 
