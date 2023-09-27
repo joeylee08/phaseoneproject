@@ -12,30 +12,47 @@ body {
 #headingDiv {
   background-color: #043927;
   width: 100%;
-  min-height: 200px;
-  max-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
   text-align: center;
+  padding: 3rem 1rem;
   box-sizing: border-box;
 }
 
 #heading {
+  width: 90%;
+  margin: auto;
+}
+
+h1 {
   color: white;
   font-size: 3rem;
+  margin: auto;
 }
 
 #buttonDiv {
-  margin: auto;
-  width: 90%;
+  width: 100%; 
+  margin: 0 auto;
   display: flex;
   justify-content: center;
+  padding: 2rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#buttonDiv.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1em 0; 
+}
+
+#buttonDiv.sticky ~ div#eventsContainer {
+  padding-top: 91px; 
 }
 
 button#eventCreateBtn {
-  margin: 2rem auto;
   background-color: #405f53;
   color: white;
   font-size: 1.5rem;
@@ -56,6 +73,7 @@ input[type="submit"]:hover {
   gap: 2rem;
   grid-auto-columns: 1fr;
   grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  transition: all 0.3s ease-in-out;
 }
 
 div.unhide {
@@ -210,7 +228,7 @@ footer {
   color: #fff;
   width: 100%;
   margin-top: 2rem;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
   box-sizing: border-box;
 }

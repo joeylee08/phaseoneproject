@@ -200,6 +200,21 @@ const sortByDate = (a, b) => {
   return a.date.split("-").join("") - b.date.split("-").join("")
 }
 
+const stickyHeader = (e) => {
+  const sticky = document.querySelector("#buttonDiv")
+  const space = document.querySelector("#headingDiv").offsetHeight
+  if (window.scrollY > space) {
+    sticky.classList.add("sticky");
+  } else {
+    sticky.classList.remove("sticky");
+  }
+}
+
+// event listener for scroll
+window.addEventListener("scroll", e => stickyHeader(e))
+
+
+
 // Joseph code
 //add toggle visibility functionality to modal box
 createEventButton.addEventListener('click', () => {
