@@ -8,6 +8,7 @@ const editForm = document.querySelector('#eventEditForm');
 const fetchUrl = 'http://localhost:3000/events';
 const eventsContainer = document.querySelector("#eventsContainer")
 const eventDetails = document.querySelector("#detailsModal")
+const adminKey = '091123';
 
 // Kat code
 const personVsPeople = (eventObj) => {
@@ -345,8 +346,9 @@ function genHostCode() {
 function validateEditor(e, eventObj) {
   e.preventDefault()
   const validate = prompt("What is your host code?", "abc123");
-  if (validate !== eventObj.hostCode) return;
-  editEvent(e, eventObj)
+  if (validate === eventObj.hostCode || validate === adminKey) {
+    editEvent(e, eventObj)
+  }
 }
 
 function editEvent(e, eventObj) {
