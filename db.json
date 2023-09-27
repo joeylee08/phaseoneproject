@@ -27,7 +27,7 @@
       "date": "2023-09-30",
       "location": "Hogwarts School of Witchcraft and Wizardry",
       "description": "Step into the magical world of Hogwarts and join us for a spellbinding lesson in Potions and Charms! Led by the esteemed Professor Snape, this class offers a hands-on experience in brewing potions and mastering enchantments. All necessary materials will be provided, so simply bring your eagerness to learn and a keen sense of curiosity. For a truly magical arrival, consider taking the Hogwarts Express. Don your robes and prepare for a day of enchantment and wizardry!",
-      "attendees": 4,
+      "attendees": 5,
       "hostCode": "717xet"
     },
     {
@@ -77,7 +77,7 @@
       "date": "2023-10-05",
       "location": "Westeros",
       "description": "Join us for the grand Feast of the Seven Kingdoms in the heart of Westeros! Indulge in a lavish banquet fit for kings and queens, complete with exotic delicacies from across the realm. Come dressed in your finest medieval attire, and be prepared for jousting tournaments and dragon-riding exhibitions. Limited parking available near the Red Keep; consider arriving early for a chance to meet the royal family.",
-      "attendees": 0,
+      "attendees": 2,
       "hostCode": "955anr"
     },
     {
