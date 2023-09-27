@@ -12,19 +12,19 @@ body {
 #headingDiv {
   background-color: #043927;
   width: 100%;
-  min-height: 250px;
+  min-height: 200px;
   max-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 #heading {
-  background-color: #043927;
   color: white;
-  margin: auto;
-  text-align: center;
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 #buttonDiv {
@@ -77,11 +77,10 @@ div.unhide {
   margin: 10% auto;
   width: 70%;
   max-width: 600px;
-  min-width: 300px;
+  min-width: 350px;
   background-color: #fdf2d0;
-  border: 50px solid #997200;
+  border: 40px solid #997200;
   padding: 1rem;
-  box-sizing: border-box;
 }
 
 #eventCreateForm {
@@ -116,7 +115,8 @@ input[type="submit"] {
 .formInputField, 
 .formTextarea, 
 label, 
-#submitNewEvent {
+#submitNewEvent, 
+#editEvent {
   display: block;
 }
 
@@ -132,10 +132,6 @@ label,
 
 .card h3 {
   margin: 1rem;
-}
-
-#detailsModal h3 {
-  height: 1.5rem;
 }
 
 .modal-content img {
@@ -180,11 +176,6 @@ select,
 .detail-footer span {
   margin: 0 auto;
   padding: 0.5rem 1rem;
-}
-
-input#editEvent {
-  display: block;
-  margin: 1rem auto 1rem auto;
 }
 
 .tooltip {
