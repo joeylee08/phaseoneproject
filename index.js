@@ -8,6 +8,7 @@ const editForm = document.querySelector('#eventEditForm');
 const fetchUrl = 'http://localhost:3000/events';
 const eventsContainer = document.querySelector("#eventsContainer")
 const eventDetails = document.querySelector("#detailsModal")
+const adminKey = '091123';
 
 // Kat code
 const personVsPeople = (eventObj) => {
@@ -37,7 +38,8 @@ const displayDetails = (e, eventObj) => {
 
 function displayDetailsCard(e, eventObj) {
   const image = document.createElement("img")
-  const pDateLoc = document.createElement("p")
+  const pDateAndTime = document.createElement("p")
+  const pLocation = document.createElement("p")
   const pDescrip = document.createElement("p")
 
   h3 = document.createElement("h3")
@@ -45,12 +47,16 @@ function displayDetailsCard(e, eventObj) {
 
   image.src = eventObj.image
   image.alt = eventObj.name
-  pDateLoc.textContent = `${parseDate(eventObj.date)}, ${eventObj.location}`
+
+  pDateAndTime.textContent = `${parseDate(eventObj.date)} - ${eventObj.start} to ${eventObj.end}`
+  
+  pLocation.textContent = eventObj.location
   pDescrip.textContent = eventObj.description
+
   h3.textContent = eventObj.name
   detailFooter.setAttribute("class", "detail-footer")
 
-  eventDetails.append(image, h3, pDateLoc, pDescrip, detailFooter)
+  eventDetails.append(image, h3, pLocation, pDateAndTime, pDescrip, detailFooter)
   eventDetails.parentNode.classList.add('unhide')
 }
 
@@ -106,6 +112,8 @@ function checkLocalStorage(e, eventObj) {
       iconSpan.classList.add('notgoing')
     }
 
+    let currentId = eventObj.id;
+
     h3.append(iconSpan)
   }
 
@@ -125,6 +133,7 @@ const renderEvent = (eventObj) => {
   tooltip.classList.add("tooltiptext")
 
   eventCard.setAttribute("class", "card")
+  eventCard.setAttribute("card-id", eventObj.id)
   eventCard.classList.add('tooltip')
   eventCard.append(image, h3, tooltip)
 
@@ -164,16 +173,19 @@ const validateFormData = (valuesArr) => {
 }
 
 const createNewEventObj = (e) => {
-  if (validateFormData([e.target.image.value, e.target.name.value, e.target.date.value, e.target.location.value, e.target.desc.value])) {
+  if (validateFormData([e.target.image.value, e.target.name.value, e.target.date.value, e.target.start.value, e.target.end.value, e.target.location.value, e.target.desc.value])) {
     const eventObj = {
       image: eventForm.image.value,
       name: eventForm.name.value,
       date: eventForm.date.value,
+      start: eventForm.start.value,
+      end: eventForm.end.value,
       location: eventForm.location.value,
       description: eventForm.desc.value,
       hostCode: genHostCode(),
       attendees: 0
     }
+    debugger
     submitNewEvent(eventObj);
     alert(`Thanks for submitting your event! Your host code is ${eventObj.hostCode}. You need this code if you want to edit your event. Thanks!`);
     modalBox.classList.remove('unhide');
@@ -258,6 +270,16 @@ function toggleAttending(e, eventObj) {
     localStorage.setItem(eventObj.id, "3")
   }
 
+  let currentId = eventObj.id;
+  let target = document.querySelector(`div#eventsContainer [card-id="${currentId}"] h3`);
+  if (target.querySelector('span') !== null) target.querySelector('span').remove();
+
+  //THIS!!! THIS! DYAAAAAAH! Apparently target.append(element) will REMOVE
+  //the original element and append it elsewhere. Had to create a clone of the iconSpan
+  //and append THAT. Blaaaah....
+  let iconSpan2 = iconSpan.cloneNode(true);
+  target.insertAdjacentElement('beforeend', iconSpan2)
+
   eventDetails.children[1].append(iconSpan)
 }
 
@@ -332,8 +354,9 @@ function genHostCode() {
 function validateEditor(e, eventObj) {
   e.preventDefault()
   const validate = prompt("What is your host code?", "abc123");
-  if (validate !== eventObj.hostCode) return;
-  editEvent(e, eventObj)
+  if (validate === eventObj.hostCode || validate === adminKey) {
+    editEvent(e, eventObj)
+  }
 }
 
 function editEvent(e, eventObj) {
@@ -341,6 +364,8 @@ function editEvent(e, eventObj) {
 
   editForm.name.value = eventObj.name;
   editForm.date.value = eventObj.date;
+  editForm.start.value = eventObj.start;
+  editForm.end.value = eventObj.end;
   editForm.location.value = eventObj.location;
   editForm.desc.value = eventObj.description;
   editForm.image.value = eventObj.image;
@@ -385,12 +410,12 @@ function patchEvent(e, eventObj) {
   }
 }
 
-const quotes = [['The real voyage of discovery consists not in seeking new landscapes but in having new eyes.', '-Marcel Proust'], ['It is only with the heart that one can see rightly; what is essential is invisible to the eye.', '-Antoine de Saint-Exupery'], ['There is some good in this world, and it’s worth fighting for.', '-J.R.R. Tolkien'], ['Beware; for I am fearless, and therefore powerful.', '-Mary Shelley'], ['The only way out of the labyrinth of suffering is to forgive.', '-John Green'], ['We accept the love we think we deserve.', '-Stephen Chobosky'], ['There are years that ask questions and years that answer.', '-Zora Neale Hurston'], ['It is nothing to die; it is dreadful not to live.', '-Victor Hugo'], ['Why, sometimes, I’ve believed as many as six impossible things before breakfast.', '-Lewis Carroll'], ['It is our choices, Harry, that show what we truly are, far more than our abilities.', '-J.K. Rowling'], ['There are some things you learn best in calm, and some in storm.', '-Willa Cather'], ['The world breaks everyone, and afterward, many are strong at the broken places.', '-Ernest Hemingway'], ['It doesn’t matter who you are or what you look like, so long as somebody loves you.', '-Roald Dahl'], ['And, when you want something, all the universe conspires in helping you to achieve it.', '-Paolo Cohelo'], ['There is always something left to love.', '-Gabriel Garcia Marquez'], ['Love is the longing for the half of ourselves we have lost.', '-Milan Kundera'], ['For you, a thousand times over.', '-Khaled Hosseini'], ['All human wisdom is summed up in these two words – \‘Wait and hope.', '-Alexandre Dumas'], ['What does the brain matter compared with the heart?', '-Virginia Woolf'], ['‘But man is not made for defeat,’ he said. ‘A man can be destroyed but not defeated.\'', '-Ernest Hemingway']];
+const quotes = [['The real voyage of discovery consists not in seeking new landscapes but in having new eyes.', '-Marcel Proust'], ['It is only with the heart that one can see rightly.', '-Antoine de Saint-Exupery'], ['There is some good in this world, and it’s worth fighting for.', '-J.R.R. Tolkien'], ['Beware; for I am fearless, and therefore powerful.', '-Mary Shelley'], ['The only way out of the labyrinth of suffering is to forgive.', '-John Green'], ['We accept the love we think we deserve.', '-Stephen Chobosky'], ['There are years that ask questions and years that answer.', '-Zora Neale Hurston'], ['It is nothing to die; it is dreadful not to live.', '-Victor Hugo'], ['Why, sometimes, I’ve believed as many as six impossible things before breakfast.', '-Lewis Carroll'], ['It is our choices, Harry, that show what we truly are, far more than our abilities.', '-J.K. Rowling'], ['There are some things you learn best in calm, and some in storm.', '-Willa Cather'], ['The world breaks everyone, and afterward, many are strong at the broken places.', '-Ernest Hemingway'], ['It doesn’t matter who you are or what you look like, so long as somebody loves you.', '-Roald Dahl'], ['And, when you want something, all the universe conspires in helping you to achieve it.', '-Paolo Cohelo'], ['There is always something left to love.', '-Gabriel Garcia Marquez'], ['Love is the longing for the half of ourselves we have lost.', '-Milan Kundera'], ['For you, a thousand times over.', '-Khaled Hosseini'], ['All human wisdom is summed up in these two words – \‘Wait and hope.', '-Alexandre Dumas'], ['What does the brain matter compared with the heart?', '-Virginia Woolf'], ['‘But man is not made for defeat,’ he said. ‘A man can be destroyed but not defeated.\'', '-Ernest Hemingway'], ['If we are honest, we can evolve.', '-Wendy Parr'], ['The only thing necessary for the triumph of evil is for good men to do nothing.', '-Edmund Burke'], ['The future doesn\'t belong to the fainthearted; it belongs to the brave.', '-Ronald Reagan'], ['The harder you work, the luckier you get.', '-Neil Donat'], ['Do or do not. There is no try.', '-Master Yoda']];
 const quote = document.querySelector('h3#quote');
 const author = document.querySelector('p#author');
 
 function genRandomQuote() {
-  const rIndex = Math.floor(Math.random() * 20);
+  const rIndex = Math.floor(Math.random() * 25);
   quote.textContent = quotes[rIndex][0];
   author.textContent = quotes[rIndex][1]
 }
