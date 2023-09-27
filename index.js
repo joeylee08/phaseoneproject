@@ -278,7 +278,8 @@ function toggleAttending(e, eventObj) {
   //the original element and append it elsewhere. Had to create a clone of the iconSpan
   //and append THAT. Blaaaah....
   let iconSpan2 = iconSpan.cloneNode(true);
-  target.insertAdjacentElement('beforeend', iconSpan2)
+  iconSpan2.textContent = iconSpan2.textContent + " ";
+  target.insertAdjacentElement('afterbegin', iconSpan2)
 
   eventDetails.children[1].append(iconSpan)
 }
