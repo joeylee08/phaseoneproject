@@ -360,7 +360,6 @@ function patchEvent(e, eventObj) {
       location: editForm.location.value,
       description: editForm.desc.value,
     }
-    
     fetch(`${fetchUrl}/${id}`, {
       method: "PATCH",
       headers: {
@@ -377,6 +376,8 @@ function patchEvent(e, eventObj) {
       displayDetails(e, patchedObj)
       editModal.parentNode.classList.remove('unhide')
       editForm.reset();
+      //ADDED THIS LINE!!!
+      eventObj = Object.assign(eventObj, patched)
     })
     .catch(err => alert(err.message))
   } else {
@@ -397,4 +398,4 @@ function genRandomQuote() {
 genRandomQuote();
 
 //function call
-getAllData()
+getAllData();
