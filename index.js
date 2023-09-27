@@ -106,6 +106,8 @@ function checkLocalStorage(e, eventObj) {
       iconSpan.classList.add('notgoing')
     }
 
+    let currentId = eventObj.id;
+
     h3.append(iconSpan)
   }
 
@@ -125,6 +127,7 @@ const renderEvent = (eventObj) => {
   tooltip.classList.add("tooltiptext")
 
   eventCard.setAttribute("class", "card")
+  eventCard.setAttribute("card-id", eventObj.id)
   eventCard.classList.add('tooltip')
   eventCard.append(image, h3, tooltip)
 
@@ -257,6 +260,15 @@ function toggleAttending(e, eventObj) {
     iconSpan.classList.add('notgoing')
     localStorage.setItem(eventObj.id, "3")
   }
+
+  let currentId = eventObj.id;
+  let target = document.querySelector(`div#eventsContainer [card-id="${currentId}"] h3`)
+
+  //THIS!!! THIS! DYAAAAAAH! Apparently target.append(element) will REMOVE
+  //the original element and append it elsewhere. Had to create a clone of the iconSpan
+  //and append THAT. Blaaaah....
+  let iconSpan2 = iconSpan.cloneNode(true);
+  target.insertAdjacentElement('beforeend', iconSpan2)
 
   eventDetails.children[1].append(iconSpan)
 }
