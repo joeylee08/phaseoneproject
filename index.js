@@ -262,7 +262,8 @@ function toggleAttending(e, eventObj) {
   }
 
   let currentId = eventObj.id;
-  let target = document.querySelector(`div#eventsContainer [card-id="${currentId}"] h3`)
+  let target = document.querySelector(`div#eventsContainer [card-id="${currentId}"] h3`);
+  if (target.querySelector('span') !== null) target.querySelector('span').remove();
 
   //THIS!!! THIS! DYAAAAAAH! Apparently target.append(element) will REMOVE
   //the original element and append it elsewhere. Had to create a clone of the iconSpan
