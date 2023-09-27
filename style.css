@@ -103,6 +103,11 @@ label {
   margin: 1rem auto;
 }
 
+#formField2, #formField3, #formField9, #formField10 {
+  display: inline;
+  width: 30%;
+}
+
 input[type="submit"] {
   padding: 1rem 2em;
   margin: 1rem auto;

@@ -38,7 +38,8 @@ const displayDetails = (e, eventObj) => {
 
 function displayDetailsCard(e, eventObj) {
   const image = document.createElement("img")
-  const pDateLoc = document.createElement("p")
+  const pDateAndTime = document.createElement("p")
+  const pLocation = document.createElement("p")
   const pDescrip = document.createElement("p")
 
   h3 = document.createElement("h3")
@@ -46,12 +47,16 @@ function displayDetailsCard(e, eventObj) {
 
   image.src = eventObj.image
   image.alt = eventObj.name
-  pDateLoc.textContent = `${parseDate(eventObj.date)}, ${eventObj.location}`
+
+  pDateAndTime.textContent = `${parseDate(eventObj.date)} - ${eventObj.start} to ${eventObj.end}`
+  
+  pLocation.textContent = eventObj.location
   pDescrip.textContent = eventObj.description
+
   h3.textContent = eventObj.name
   detailFooter.setAttribute("class", "detail-footer")
 
-  eventDetails.append(image, h3, pDateLoc, pDescrip, detailFooter)
+  eventDetails.append(image, h3, pLocation, pDateAndTime, pDescrip, detailFooter)
   eventDetails.parentNode.classList.add('unhide')
 }
 
@@ -168,16 +173,19 @@ const validateFormData = (valuesArr) => {
 }
 
 const createNewEventObj = (e) => {
-  if (validateFormData([e.target.image.value, e.target.name.value, e.target.date.value, e.target.location.value, e.target.desc.value])) {
+  if (validateFormData([e.target.image.value, e.target.name.value, e.target.date.value, e.target.start.value, e.target.end.value, e.target.location.value, e.target.desc.value])) {
     const eventObj = {
       image: eventForm.image.value,
       name: eventForm.name.value,
       date: eventForm.date.value,
+      start: eventForm.start.value,
+      end: eventForm.end.value,
       location: eventForm.location.value,
       description: eventForm.desc.value,
       hostCode: genHostCode(),
       attendees: 0
     }
+    debugger
     submitNewEvent(eventObj);
     alert(`Thanks for submitting your event! Your host code is ${eventObj.hostCode}. You need this code if you want to edit your event. Thanks!`);
     modalBox.classList.remove('unhide');
@@ -356,6 +364,8 @@ function editEvent(e, eventObj) {
 
   editForm.name.value = eventObj.name;
   editForm.date.value = eventObj.date;
+  editForm.start.value = eventObj.start;
+  editForm.end.value = eventObj.end;
   editForm.location.value = eventObj.location;
   editForm.desc.value = eventObj.description;
   editForm.image.value = eventObj.image;
