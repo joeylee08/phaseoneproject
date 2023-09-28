@@ -149,6 +149,7 @@ label,
 
 .card {
   background-color: #fdf2d0;
+  max-width: 500px;
 }
 
 .card img {
@@ -198,7 +199,8 @@ form#search {
 }
 
 select,
-form#search #searchEvents {
+form#search #searchEvents,
+#clearsearch {
   background-color: #405f53;
   color: white;
   padding: 0.5rem 1rem;
@@ -210,6 +212,11 @@ select,
 .detail-footer span {
   margin: 0 auto;
   padding: 0.5rem 1rem;
+}
+
+#clearsearch {
+  margin: 2rem auto 0 auto;
+  display: block;
 }
 
 .tooltip {
