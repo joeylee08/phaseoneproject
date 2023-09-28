@@ -32,7 +32,7 @@ let notgoing;
 // display event details
 const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
-  
+
   displayDetailsCard(e, eventObj)
   displayDetailsLabel(e, eventObj)
   checkLocalStorage(eventObj, h3detail)
@@ -443,8 +443,10 @@ const author = document.querySelector('p#author');
 
 function genRandomQuote() {
   const rIndex = Math.floor(Math.random() * 25);
-  quote.textContent = quotes[rIndex][0];
-  author.textContent = quotes[rIndex][1]
+  const words = quotes[rIndex][0];
+  const person = quotes[rIndex][1];
+  quote.prepend(words)
+  author.prepend(person)
 }
 
 genRandomQuote();
