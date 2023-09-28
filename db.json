@@ -9,7 +9,7 @@
       "start": "0800",
       "end": "1300",
       "description": "Indulge in a unique countryside experience at Schrute Farms' Beet Wine Tasting event! Wander through the picturesque beet fields and savor a selection of handcrafted beet wines, expertly curated by Dwight Schrute himself. As you sip on the robust flavors, take in the rustic charm of the farm and discover the secrets behind this eccentric winemaking process. Don't forget to bring your own rain boots, as it might get a tad muddy. Limited parking available, so consider carpooling with fellow beet enthusiasts for an unforgettable day in the heart of the beet capital.",
-      "attendees": 3,
+      "attendees": 4,
       "hostCode": "216yvk"
     },
     {
@@ -33,7 +33,7 @@
       "start": "0700",
       "end": "1200",
       "description": "Step into the magical world of Hogwarts and join us for a spellbinding lesson in Potions and Charms! Led by the esteemed Professor Snape, this class offers a hands-on experience in brewing potions and mastering enchantments. All necessary materials will be provided, so simply bring your eagerness to learn and a keen sense of curiosity. For a truly magical arrival, consider taking the Hogwarts Express. Don your robes and prepare for a day of enchantment and wizardry!",
-      "attendees": 22,
+      "attendees": 23,
       "hostCode": "717xet"
     },
     {
@@ -45,7 +45,7 @@
       "start": "0900",
       "end": "1400",
       "description": "Embark on a prehistoric adventure with a picnic on the awe-inspiring Isla Nublar! Surrounded by towering ancient giants, enjoy a leisurely afternoon of fossil-hunting, guided tours, and even the chance to interact with some of the friendlier dinosaurs. Please be sure to bring a sturdy umbrella, as the weather on the island can be as unpredictable as a velociraptor's mood. Arrive by helicopter for a bird's-eye view of this astonishing ecosystem, and let the wonders of the past transport you to a world long gone but never forgotten.",
-      "attendees": 5,
+      "attendees": 8,
       "hostCode": "502atf"
     },
     {
@@ -57,7 +57,7 @@
       "start": "1100",
       "end": "1300",
       "description": "It's time to don your most eccentric hat and join the Mad Hatter for a tea party in the fantastical realm of Wonderland! Delight in a spread of curious confections and whimsical brews, all served in the company of Wonderland's most intriguing characters. Expect the unexpected, and bring an umbrella for a surprise shower of tea, courtesy of the ever-playful March Hare. Follow the White Rabbit's trail for directions to this topsy-turvy affair, and prepare to lose yourself in the peculiar magic of Wonderland. It's bound to be an Unbirthday celebration like no other!",
-      "attendees": 0,
+      "attendees": 1,
       "hostCode": "879jjz"
     },
     {
@@ -69,7 +69,7 @@
       "start": "1300",
       "end": "2100",
       "description": "Step through the wardrobe and into the enchanting world of Narnia for the Winter Festival! The land is blanketed in eternal snow, creating a picturesque backdrop for a day of magical festivities. Join us for snowball fights, ice skating on the frozen river, and warm cups of spiced hot cocoa by the lamppost. As you explore the wondrous realm, keep an eye out for visits from the talking animals and perhaps even a sighting of the mighty Aslan. Remember to bundle up warmly, for in Narnia, winter never ends. Follow the whispers of the wind for directions to this extraordinary festival!",
-      "attendees": 0,
+      "attendees": 1,
       "hostCode": "051exw"
     },
     {
@@ -105,7 +105,7 @@
       "start": "0900",
       "end": "1030",
       "description": "Join us for a Potato Extravaganza at Second Breakfast in the picturesque Shire! Indulge in a delectable spread of potato-based dishes, from crispy tater tots to creamy mashed potatoes. Don't forget to bring a hearty appetite for adventure! Limited seating available at Bag End, so arrive early to claim your spot and enjoy the rolling hills of the Shire.",
-      "attendees": 13,
+      "attendees": 15,
       "hostCode": "400und"
     },
     {
@@ -117,7 +117,7 @@
       "start": "0800",
       "end": "1100",
       "description": "Embark on a journey of tea mastery with the wise Uncle Iroh at the Jasmine Dragon in Ba Sing Se! Learn the art of brewing the perfect cup of tea and discover the secrets of harmonizing flavors. Uncle Iroh will share ancient wisdom and personal anecdotes as you sip on a variety of exquisite teas. Limited seating available, so reserve your spot early and prepare for a tranquil afternoon of enlightenment and relaxation.",
-      "attendees": 0,
+      "attendees": 2,
       "hostCode": "042ifu"
     },
     {
@@ -153,7 +153,7 @@
       "start": "1800",
       "end": "2300",
       "description": "Join us for the legendary Asgardian Feast of the Nine Realms! This grand celebration will take place in the golden halls of Asgard, where gods and mortals alike will come together in merriment. Feast on delicacies from across the realms, enjoy performances by the Skalds, and witness the mesmerizing Aurora Borealis of Asgard. Dress in your finest Asgardian attire and prepare for an evening of magic and splendor! Limited Bifrost arrivals, so ensure you're punctual for this cosmic event.",
-      "attendees": 0,
+      "attendees": 3,
       "hostCode": "817wwi"
     },
     {
@@ -177,7 +177,7 @@
       "start": "1100",
       "end": "1800",
       "description": "Experience the magic of the Scottish Highlands at the Highland Festival held at the ancient standing stones of Craigh na Dun! Immerse yourself in traditional Highland games, music, and dance. Savor authentic Scottish cuisine and explore local crafts. But heed this warning: if you hear a strange buzzing near the standing stones, do not touch them. It could lead to unexpected journeys through time!",
-      "attendees": 3,
+      "attendees": 4,
       "hostCode": "331vzf"
     },
     {
@@ -189,7 +189,7 @@
       "start": "1100",
       "end": "2100",
       "description": "Join fellow survivors of Oceanic Flight 815 for a beach party on this mysterious island! Relax on the sandy shores, swim in the crystal-clear waters, and explore the lush tropical surroundings. Enjoy a BBQ feast with fresh island fruits and seafood delicacies. As the sun sets, gather around the bonfire for stories and camaraderie. Keep an eye out for any unexpected visitors or strange occurrences. Limited seating available, so bring your own beach blanket or chair.",
-      "attendees": 6,
+      "attendees": 8,
       "hostCode": "812vce"
     },
     {
@@ -201,7 +201,7 @@
       "start": "1700",
       "end": "2200",
       "description": "Get ready for a shindig aboard the legendary spaceship Serenity, cruising through the Black! Join the crew for a night of dancing, live music, and a hearty spread of frontier-style cuisine. Dress in your finest threads or go full space cowboy for the costume contest. Keep an eye on your belongings, though; Jayne Cobb has a knack for 'borrowing' shiny things. Limited shuttle service available for guests from nearby planets, so RSVP early to secure your spot in the Black.",
-      "attendees": 1,
+      "attendees": 2,
       "hostCode": "708wkx"
     }
   ]
