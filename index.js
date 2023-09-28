@@ -32,8 +32,7 @@ let notgoing;
 // display event details
 const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
-  //***************** 
-
+  
   displayDetailsCard(e, eventObj)
   displayDetailsLabel(e, eventObj)
   checkLocalStorage(eventObj, h3detail)
