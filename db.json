@@ -9,7 +9,7 @@
       "start": "0800",
       "end": "1300",
       "description": "Indulge in a unique countryside experience at Schrute Farms' Beet Wine Tasting event! Wander through the picturesque beet fields and savor a selection of handcrafted beet wines, expertly curated by Dwight Schrute himself. As you sip on the robust flavors, take in the rustic charm of the farm and discover the secrets behind this eccentric winemaking process. Don't forget to bring your own rain boots, as it might get a tad muddy. Limited parking available, so consider carpooling with fellow beet enthusiasts for an unforgettable day in the heart of the beet capital.",
-      "attendees": 2,
+      "attendees": 3,
       "hostCode": "216yvk"
     },
     {
@@ -203,18 +203,6 @@
       "description": "Get ready for a shindig aboard the legendary spaceship Serenity, cruising through the Black! Join the crew for a night of dancing, live music, and a hearty spread of frontier-style cuisine. Dress in your finest threads or go full space cowboy for the costume contest. Keep an eye on your belongings, though; Jayne Cobb has a knack for 'borrowing' shiny things. Limited shuttle service available for guests from nearby planets, so RSVP early to secure your spot in the Black.",
       "attendees": 1,
       "hostCode": "708wkx"
-    },
-    {
-      "image": "https://www.seti.org/sites/default/files/2020-10/earth-view-from-moon-perspective-footprints-1400px.jpg",
-      "name": "Trip to the Moon",
-      "date": "2023-11-24",
-      "start": "0900",
-      "end": "2300",
-      "location": "The MOOOON! Wahoo!",
-      "description": "It's a trip to the moon. Pretty self explanatory.",
-      "hostCode": "053var",
-      "attendees": 0,
-      "id": 18
     }
   ]
 }
