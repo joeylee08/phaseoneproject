@@ -283,12 +283,26 @@ const searchByKeyword = (e) => {
   e.preventDefault()
   const keyword = e.target.search.value
   getAllData(keyword)
+  e.target.reset()
   eventsContainer.innerHTML = ""
 }
 
 const sortAndIterate = (objArray) => {
   objArray.sort((a, b) => sortByDate(a, b))
   objArray.forEach(event => renderEvent(event))
+}
+
+const createClear = () => {
+  const clearSearch = document.createElement("button")
+  clearSearch.setAttribute("id", "clearsearch")
+  clearSearch.textContent = "Clear Search"
+  eventsContainer.insertAdjacentElement('afterend', clearSearch)
+
+  clearSearch.addEventListener("click", () => {
+    eventsContainer.innerHTML = ""
+    getAllData()
+    clearSearch.remove()
+  })
 }
 
 const filterSearch = (keyword, objArray) => {
@@ -298,6 +312,7 @@ const filterSearch = (keyword, objArray) => {
       obj.description && obj.description.toLowerCase().includes(keyword)
   })
   sortAndIterate(filtered)
+  createClear()
 }
 
 // relating to edit event
