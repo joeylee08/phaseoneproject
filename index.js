@@ -14,6 +14,13 @@ const searchEvents = document.querySelector("#search")
 const clearDiv = document.querySelector("#clearDiv")
 const adminKey = '091123';
 
+const getStatus = {
+  0: '',
+  1: 'interested',
+  2: 'going',
+  3: 'notgoing'
+}
+
 let detailFooter;
 let h3detail;
 let h3card;
@@ -160,6 +167,11 @@ const toggleAttending = (e, eventObj) => {
 
 // create attend dropdown
 const displayDetailsLabel = (e, eventObj) => {
+  //check localStorage for eventObj.id
+  //depending on the key value, "select" appropriate option
+  
+  const status = localStorage.getItem(eventObj.id)
+  
   const label = document.createElement("label") 
   const dropdown = document.createElement("select")
   const select = document.createElement("option")
@@ -184,6 +196,9 @@ const displayDetailsLabel = (e, eventObj) => {
   
   dropdown.append(select, interested, going, notgoing)
   label.append(dropdown)
+
+  dropdown.value = getStatus[status]
+
   detailFooter.append(label, attendSpan)
 }
 
