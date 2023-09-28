@@ -208,7 +208,7 @@ select,
 
 .tooltiptext {
   visibility: hidden;
-  background-color: rgba(58, 46, 14, 0.6);
+  background-color: rgba(58, 46, 14, 0.8);
   color: #fff;
   text-align: center;
   font-size: 0.75rem;
