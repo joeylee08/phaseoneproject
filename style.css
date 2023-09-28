@@ -258,13 +258,20 @@ footer {
   padding-right: 1.5rem;
   padding-bottom: 1rem;
   padding-top: 1rem;
-  min-width: 80px;
+  min-width: 120px;
 }
 
 #gitlinks a {
   font-size: 1.4rem;
   color: white;
   text-decoration: none;
+}
+
+#gitlinks a span {
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: medium;
 }
 
 #gitlinks a:hover {

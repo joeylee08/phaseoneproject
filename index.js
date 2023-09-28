@@ -91,36 +91,34 @@ const displayDetailsCard = (e, eventObj) => {
 
   eventDetails.append(image, h3detail, pLocation, pDateAndTime, pDescrip, detailFooter)
   eventDetails.parentNode.classList.add('unhide')
+
 }
 
 // check local storage for attend status
-const checkLocalStorage = (eventObj, target) => {
-  const localState = localStorage.getItem(eventObj.id)
-  if (localState !== 0) { 
-    const iconSpan = document.createElement('span');
+const checkLocalStorage = (eventObj, target, localState) => {
 
-    if (localState === '1') {
-      interested.selected = 'true'
-      iconSpan.textContent = ' ★'
-      iconSpan.classList.add('interested')
-    }
-    if (localState === '2') {
-      going.selected = 'true'
-      iconSpan.textContent = ' ✔'
-      iconSpan.classList.add('going')
-    }
-    if (localState === '3') {
-      notgoing.selected = 'true'
-      iconSpan.textContent = ' ✘'
-      iconSpan.classList.add('notgoing')
-    }
+  const iconSpan = document.createElement('span');
+  if (localState === '1') {
+    interested.selected = 'true'
+    iconSpan.textContent = ' ★'
+    iconSpan.classList.add('interested')
+  } else if (localState === '2') {
+    going.selected = 'true'
+    iconSpan.textContent = ' ✔'
+    iconSpan.classList.add('going')
+  } else if (localState === '3') {
+    notgoing.selected = 'true'
+    iconSpan.textContent = ' ✘'
+    iconSpan.classList.add('notgoing')
+  } else {
+    //WHAT GOES HEREEE!!!!!! WHATS IN THE BOXXXX???!??
+  }
 
-    if (target === h3detail) {
-      target.append(iconSpan)
-    } else if (target == h3card) {
-      target.textContent = " " + eventObj.name
-      target.insertAdjacentElement('afterbegin', iconSpan)
-    }
+  if (target === h3detail) {
+    target.append(iconSpan)
+  } else if (target == h3card) {
+    target.textContent = " " + eventObj.name
+    target.insertAdjacentElement('afterbegin', iconSpan)
   }
 }
 
@@ -192,15 +190,44 @@ const displayDetailsLabel = (e, eventObj) => {
 const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
 
+  const localState = localStorage.getItem(eventObj.id)
+
   displayDetailsCard(e, eventObj)
-  checkLocalStorage(eventObj, h3detail)
   displayDetailsLabel(e, eventObj)
+  checkLocalStorage(eventObj, h3detail, localState)
   
   eventDetails.parentNode.classList.add('unhide')
 }
 
+//check if event has passed before rendering
+const eventHasPassed = (eventObj) => {
+  const yearNow = new Date().getFullYear()
+
+  let monthNow = new Date().getMonth() + 1
+  if (monthNow < 10) monthNow = `0${monthNow}`
+  
+  let dayNow = new Date().getDate()
+  if (dayNow < 10) dayNow = `0${dayNow}`
+
+  const eventDate = +eventObj.date.split("-").join("")
+  const today = +(`${yearNow}${monthNow}${dayNow}`)
+
+  return eventDate < today;
+}
+
 // render card for event
 const renderEvent = (eventObj) => {
+  if (eventHasPassed(eventObj)) {
+    fetch(`${fetchUrl}/${eventObj.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    alert('Past events removed.')
+    return;
+  }
   const eventCard = document.createElement("div");
   const image = document.createElement("img");
   const tooltip = document.createElement("span");
@@ -221,9 +248,8 @@ const renderEvent = (eventObj) => {
   eventCard.classList.add('tooltip')
   eventCard.append(image, h3card, tooltip)
 
-  localStorage.setItem(eventObj.id, localStorage[eventObj.id])
   const localState = localStorage.getItem(eventObj.id)
-  checkLocalStorage(eventObj, h3card)
+  checkLocalStorage(eventObj, h3card, localState)
 
   eventCard.addEventListener("click", (e) => displayDetails(e, eventObj))
   eventCard.addEventListener("contextmenu", (e) => validateEditor(e, eventObj))
@@ -299,6 +325,7 @@ const filterSearch = (keyword, objArray) => {
   })
   sortAndIterate(filtered)
 }
+
 
 // relating to edit event
 const validateEditor = (e, eventObj) => {
