@@ -8,9 +8,11 @@ const editForm = document.querySelector('#eventEditForm');
 const fetchUrl = 'http://localhost:3000/events';
 const eventsContainer = document.querySelector("#eventsContainer")
 const eventDetails = document.querySelector("#detailsModal")
+const searchEvents = document.querySelector("#search")
 const adminKey = '091123';
 
 // Kat code
+// helper functions
 const personVsPeople = (eventObj) => {
   if(eventObj.attendees === 1) {
     return `${eventObj.attendees} person attending`
@@ -60,8 +62,9 @@ function displayDetailsCard(e, eventObj) {
   eventDetails.parentNode.classList.add('unhide')
 }
 
+// display attend dropdown
 function displayDetailsLabel(e, eventObj) {
-  const label = document.createElement("label") //display dropdown
+  const label = document.createElement("label") 
   const dropdown = document.createElement("select")
   const select = document.createElement("option")
   const attendSpan = document.createElement("span") 
@@ -92,8 +95,9 @@ function displayDetailsLabel(e, eventObj) {
   detailFooter.append(label, attendSpan)
 }
 
+// check local storage for attend status
 function checkLocalStorage(e, eventObj) {
-  if (localStorage.getItem(eventObj.id) !== 0) { //check local storage
+  if (localStorage.getItem(eventObj.id) !== 0) { 
     const iconSpan = document.createElement('span');
 
     if (localStorage.getItem(eventObj.id) === '1') {
@@ -116,7 +120,6 @@ function checkLocalStorage(e, eventObj) {
 
     h3.append(iconSpan)
   }
-
 }
 
 // render card for event
@@ -210,8 +213,18 @@ const stickyHeader = (e) => {
   }
 }
 
+const searchByKeyword = (e) => {
+  e.preventDefault()
+  const keyword = e.target.search.value
+  getAllData(keyword)
+  eventsContainer.innerHTML = ""
+}
+
 // event listener for scroll
 window.addEventListener("scroll", e => stickyHeader(e))
+
+// event listener for search
+searchEvents.addEventListener("submit", e => searchByKeyword(e))
 
 
 
@@ -234,15 +247,47 @@ eventForm.addEventListener('submit', (e) => {
 })
 
 //helper functions
-function getAllData() {
+// function getAllData() {
+//   fetch(fetchUrl)
+//     .then(resp => {
+//       if (resp.ok) return resp.json()
+//       throw new Error('Failed to fetch event data.')
+//     })
+//     .then(objArray => {
+//       objArray.sort((a, b) => sortByDate(a, b))
+//       objArray.forEach(event => renderEvent(event))
+//     })
+//     .catch(err => alert(err.message))
+// }
+
+const sortAndIterate = (objArray) => {
+  objArray.sort((a, b) => sortByDate(a, b))
+  objArray.forEach(event => renderEvent(event))
+}
+
+const filterSearch = (keyword, objArray) => {
+  if (!keyword) return objArray // If no keyword, return the original array
+
+  const filtered = objArray.filter(obj => {
+    return obj.name && obj.name.toLowerCase().includes(keyword) ||
+      obj.location && obj.location.toLowerCase().includes(keyword) ||
+      obj.description && obj.description.toLowerCase().includes(keyword)
+  })
+  sortAndIterate(filtered)
+}
+
+function getAllData(keyword) {
   fetch(fetchUrl)
     .then(resp => {
       if (resp.ok) return resp.json()
       throw new Error('Failed to fetch event data.')
     })
     .then(objArray => {
-      objArray.sort((a, b) => sortByDate(a, b))
-      objArray.forEach(event => renderEvent(event))
+      if(keyword) {
+        filterSearch(keyword, objArray)
+      } else {
+        sortAndIterate(objArray)
+      }
     })
     .catch(err => alert(err.message))
 }
