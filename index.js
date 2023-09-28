@@ -11,6 +11,7 @@ const editForm = document.querySelector('#eventEditForm');
 const eventsContainer = document.querySelector("#eventsContainer")
 const eventDetails = document.querySelector("#detailsModal")
 const searchEvents = document.querySelector("#search")
+const clearDiv = document.querySelector("#clearDiv")
 const adminKey = '091123';
 
 let detailFooter;
@@ -284,7 +285,7 @@ const searchByKeyword = (e) => {
   const keyword = e.target.search.value
   getAllData(keyword)
   e.target.reset()
-  eventsContainer.innerHTML = ""
+  clearDiv.innerHTML = ""
 }
 
 const sortAndIterate = (objArray) => {
@@ -296,7 +297,7 @@ const createClear = () => {
   const clearSearch = document.createElement("button")
   clearSearch.setAttribute("id", "clearsearch")
   clearSearch.textContent = "Clear Search"
-  eventsContainer.insertAdjacentElement('afterend', clearSearch)
+  clearDiv.append(clearSearch)
 
   clearSearch.addEventListener("click", () => {
     eventsContainer.innerHTML = ""
@@ -311,8 +312,14 @@ const filterSearch = (keyword, objArray) => {
       obj.location && obj.location.toLowerCase().includes(keyword) ||
       obj.description && obj.description.toLowerCase().includes(keyword)
   })
-  sortAndIterate(filtered)
-  createClear()
+  if(filtered.length) {
+    eventsContainer.innerHTML = ""
+    sortAndIterate(filtered)
+    createClear()
+  } else {
+    alert("Sorry, no event matches!")
+    getAllData()
+  }
 }
 
 // relating to edit event
