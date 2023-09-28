@@ -23,7 +23,8 @@ const personVsPeople = (eventObj) => {
 }
 
 let detailFooter;
-let h3;
+let h3detail;
+let h3card;
 let interested;
 let going;
 let notgoing;
@@ -31,10 +32,11 @@ let notgoing;
 // display event details
 const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
+  //***************** 
 
   displayDetailsCard(e, eventObj)
   displayDetailsLabel(e, eventObj)
-  checkLocalStorage(e, eventObj)
+  checkLocalStorage(eventObj, h3detail)
   
   eventDetails.parentNode.classList.add('unhide')
 }
@@ -45,7 +47,7 @@ function displayDetailsCard(e, eventObj) {
   const pLocation = document.createElement("p")
   const pDescrip = document.createElement("p")
 
-  h3 = document.createElement("h3")
+  h3detail = document.createElement("h3")
   detailFooter = document.createElement("div")
 
   image.src = eventObj.image
@@ -56,10 +58,10 @@ function displayDetailsCard(e, eventObj) {
   pLocation.textContent = eventObj.location
   pDescrip.textContent = eventObj.description
 
-  h3.textContent = eventObj.name
+  h3detail.textContent = eventObj.name
   detailFooter.setAttribute("class", "detail-footer")
 
-  eventDetails.append(image, h3, pLocation, pDateAndTime, pDescrip, detailFooter)
+  eventDetails.append(image, h3detail, pLocation, pDateAndTime, pDescrip, detailFooter)
   eventDetails.parentNode.classList.add('unhide')
 }
 
@@ -69,11 +71,7 @@ function displayDetailsLabel(e, eventObj) {
   const dropdown = document.createElement("select")
   const select = document.createElement("option")
   const attendSpan = document.createElement("span") 
-  
-  interested = document.createElement("option")
-  going = document.createElement("option")
-  notgoing = document.createElement("option")
-  
+
   label.setAttribute("name", "attending")
   dropdown.setAttribute("name", "attending")
   select.setAttribute("value", "")
@@ -97,29 +95,33 @@ function displayDetailsLabel(e, eventObj) {
 }
 
 // check local storage for attend status
-function checkLocalStorage(e, eventObj) {
-  if (localStorage.getItem(eventObj.id) !== 0) { 
+function checkLocalStorage(eventObj, target) {
+  const localState = localStorage.getItem(eventObj.id)
+  if (localState !== 0) { 
     const iconSpan = document.createElement('span');
 
-    if (localStorage.getItem(eventObj.id) === '1') {
+    if (localState === '1') {
       interested.selected = 'true'
       iconSpan.textContent = ' ★'
       iconSpan.classList.add('interested')
     }
-    if (localStorage.getItem(eventObj.id) === '2') {
+    if (localState === '2') {
       going.selected = 'true'
       iconSpan.textContent = ' ✔'
       iconSpan.classList.add('going')
     }
-    if (localStorage.getItem(eventObj.id) === '3') {
+    if (localState === '3') {
       notgoing.selected = 'true'
       iconSpan.textContent = ' ✘'
       iconSpan.classList.add('notgoing')
     }
 
-    let currentId = eventObj.id;
-
-    h3.append(iconSpan)
+    if (target === h3detail) {
+      target.append(iconSpan)
+    } else if (target == h3card) {
+      target.textContent = " " + eventObj.name
+      target.insertAdjacentElement('afterbegin', iconSpan)
+    }
   }
 }
 
@@ -127,21 +129,27 @@ function checkLocalStorage(e, eventObj) {
 const renderEvent = (eventObj) => {
   const eventCard = document.createElement("div");
   const image = document.createElement("img");
-  const h3 = document.createElement("h3");
   const tooltip = document.createElement("span");
+
+  interested = document.createElement("option")
+  going = document.createElement("option")
+  notgoing = document.createElement("option")
   
   image.src = eventObj.image
   image.alt = eventObj.name
-  h3.textContent = eventObj.name
+  h3card = document.createElement("h3");
+  h3card.textContent = eventObj.name
   tooltip.textContent = "Right click to edit event."
   tooltip.classList.add("tooltiptext")
 
   eventCard.setAttribute("class", "card")
   eventCard.setAttribute("card-id", eventObj.id)
   eventCard.classList.add('tooltip')
-  eventCard.append(image, h3, tooltip)
+  eventCard.append(image, h3card, tooltip)
 
-  localStorage.setItem(eventObj.id, "0")
+  localStorage.setItem(eventObj.id, localStorage[eventObj.id])
+  const localState = localStorage.getItem(eventObj.id)
+  checkLocalStorage(eventObj, h3card)
 
   eventCard.addEventListener("click", (e) => displayDetails(e, eventObj))
   eventCard.addEventListener("contextmenu", (e) => validateEditor(e, eventObj))
@@ -189,7 +197,7 @@ const createNewEventObj = (e) => {
       hostCode: genHostCode(),
       attendees: 0
     }
-    debugger
+
     submitNewEvent(eventObj);
     alert(`Thanks for submitting your event! Your host code is ${eventObj.hostCode}. You need this code if you want to edit your event. Thanks!`);
     modalBox.classList.remove('unhide');
@@ -319,7 +327,8 @@ function toggleAttending(e, eventObj) {
   if (target.querySelector('span') !== null) target.querySelector('span').remove();
 
   let iconSpan2 = iconSpan.cloneNode(true);
-  target.insertAdjacentElement('beforeend', iconSpan2)
+  target.textContent = " " + eventObj.name;
+  target.insertAdjacentElement('afterbegin', iconSpan2)
 
   eventDetails.children[1].append(iconSpan)
 }
