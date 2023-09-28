@@ -1,3 +1,5 @@
+'use strict'
+
 //global variables
 const createEventButton = document.querySelector('#eventCreateBtn');
 const modalBox = document.querySelector('.modal');
@@ -11,7 +13,6 @@ const eventDetails = document.querySelector("#detailsModal")
 const searchEvents = document.querySelector("#search")
 const adminKey = '091123';
 
-// Kat code
 // helper functions
 const personVsPeople = (eventObj) => {
   if(eventObj.attendees === 1) {
@@ -21,15 +22,15 @@ const personVsPeople = (eventObj) => {
   }
 }
 
+let detailFooter;
+let h3;
+let interested;
+let going;
+let notgoing;
+
 // display event details
 const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
-
-  let detailFooter;
-  let h3;
-  let interested;
-  let going;
-  let notgoing;
 
   displayDetailsCard(e, eventObj)
   displayDetailsLabel(e, eventObj)
@@ -226,9 +227,6 @@ window.addEventListener("scroll", e => stickyHeader(e))
 // event listener for search
 searchEvents.addEventListener("submit", e => searchByKeyword(e))
 
-
-
-// Joseph code
 //add toggle visibility functionality to modal box
 createEventButton.addEventListener('click', () => {
   modalBox.classList.add('unhide');
@@ -245,20 +243,6 @@ eventForm.addEventListener('submit', (e) => {
   e.preventDefault();
   createNewEventObj(e)
 })
-
-//helper functions
-// function getAllData() {
-//   fetch(fetchUrl)
-//     .then(resp => {
-//       if (resp.ok) return resp.json()
-//       throw new Error('Failed to fetch event data.')
-//     })
-//     .then(objArray => {
-//       objArray.sort((a, b) => sortByDate(a, b))
-//       objArray.forEach(event => renderEvent(event))
-//     })
-//     .catch(err => alert(err.message))
-// }
 
 const sortAndIterate = (objArray) => {
   objArray.sort((a, b) => sortByDate(a, b))
@@ -334,9 +318,6 @@ function toggleAttending(e, eventObj) {
   let target = document.querySelector(`div#eventsContainer [card-id="${currentId}"] h3`);
   if (target.querySelector('span') !== null) target.querySelector('span').remove();
 
-  //THIS!!! THIS! DYAAAAAAH! Apparently target.append(element) will REMOVE
-  //the original element and append it elsewhere. Had to create a clone of the iconSpan
-  //and append THAT. Blaaaah....
   let iconSpan2 = iconSpan.cloneNode(true);
   target.insertAdjacentElement('beforeend', iconSpan2)
 
