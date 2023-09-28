@@ -38,6 +38,9 @@ h1 {
   justify-content: center;
   padding: 2rem 0;
   transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 #buttonDiv.sticky {
@@ -52,12 +55,16 @@ h1 {
   padding-top: 91px; 
 }
 
-button#eventCreateBtn {
+/* button#eventCreateBtn {
   background-color: #405f53;
   color: white;
   font-size: 1.5rem;
   padding: 1rem 3rem;
   border: none;
+} */
+
+#buttonDiv label {
+  margin-top: 0;
 }
 
 button:hover, 
@@ -126,14 +133,18 @@ label {
   width: 30%;
 }
 
-input[type="submit"] {
+input[type="submit"],
+button#eventCreateBtn {
   padding: 1rem 2em;
-  margin: 1rem auto;
   width: auto;
   background-color: #405f53;
   color: white;
   font-size: 120%;
   border: none;
+}
+
+input[type="submit"] {
+  margin: 1rem auto;
 }
 
 .formInputField, 
@@ -182,13 +193,20 @@ label,
   line-height: 0rem;
 }
 
-.detail-footer {
+form#search #searchEvents {
+  margin: 0 1rem;
+  align-self: flex-end;
+}
+
+.detail-footer,
+form#search {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-select {
+select,
+form#search #searchEvents {
   background-color: #405f53;
   color: white;
   padding: 0.5rem 1rem;
