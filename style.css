@@ -243,11 +243,38 @@ select,
 }
 
 footer {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
   background-color: #405f53;
   color: #fff;
   width: 100%;
   margin-top: 2rem;
   padding: 0.5rem;
-  text-align: center;
+  padding-left: 2rem;
+  text-align: left;
   box-sizing: border-box;
+}
+
+.svg {
+  font-size: 2rem;
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(342deg) brightness(101%) contrast(102%);
+}
+
+
+#gitlinks {
+  text-align: right;
+  padding-right: 1.5rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  min-width: 80px;
+}
+
+#gitlinks a {
+  font-size: 1.4rem;
+  color: white;
+  text-decoration: none;
+}
+
+#gitlinks a:hover {
+  text-decoration: underline;
 }

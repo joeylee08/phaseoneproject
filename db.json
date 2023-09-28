@@ -33,7 +33,7 @@
       "start": "0700",
       "end": "1200",
       "description": "Step into the magical world of Hogwarts and join us for a spellbinding lesson in Potions and Charms! Led by the esteemed Professor Snape, this class offers a hands-on experience in brewing potions and mastering enchantments. All necessary materials will be provided, so simply bring your eagerness to learn and a keen sense of curiosity. For a truly magical arrival, consider taking the Hogwarts Express. Don your robes and prepare for a day of enchantment and wizardry!",
-      "attendees": 20,
+      "attendees": 22,
       "hostCode": "717xet"
     },
     {
@@ -45,7 +45,7 @@
       "start": "0900",
       "end": "1400",
       "description": "Embark on a prehistoric adventure with a picnic on the awe-inspiring Isla Nublar! Surrounded by towering ancient giants, enjoy a leisurely afternoon of fossil-hunting, guided tours, and even the chance to interact with some of the friendlier dinosaurs. Please be sure to bring a sturdy umbrella, as the weather on the island can be as unpredictable as a velociraptor's mood. Arrive by helicopter for a bird's-eye view of this astonishing ecosystem, and let the wonders of the past transport you to a world long gone but never forgotten.",
-      "attendees": 3,
+      "attendees": 5,
       "hostCode": "502atf"
     },
     {
@@ -93,7 +93,7 @@
       "start": "1400",
       "end": "2400",
       "description": "Join us for the grand Feast of the Seven Kingdoms in the heart of Westeros! Indulge in a lavish banquet fit for kings and queens, complete with exotic delicacies from across the realm. Come dressed in your finest medieval attire, and be prepared for jousting tournaments and dragon-riding exhibitions. Limited parking available near the Red Keep; consider arriving early for a chance to meet the royal family.",
-      "attendees": 27,
+      "attendees": 33,
       "hostCode": "955anr"
     },
     {
@@ -105,7 +105,7 @@
       "start": "0900",
       "end": "1030",
       "description": "Join us for a Potato Extravaganza at Second Breakfast in the picturesque Shire! Indulge in a delectable spread of potato-based dishes, from crispy tater tots to creamy mashed potatoes. Don't forget to bring a hearty appetite for adventure! Limited seating available at Bag End, so arrive early to claim your spot and enjoy the rolling hills of the Shire.",
-      "attendees": 7,
+      "attendees": 13,
       "hostCode": "400und"
     },
     {
@@ -129,7 +129,7 @@
       "start": "2000",
       "end": "2300",
       "description": "Step into a world of enchantment at the Enchanted Ball held in the iconic Cinderella's Castle! Dance the night away in a grand ballroom adorned with crystal chandeliers and magical decorations. Elegant gowns and dashing suits are a must! The evening promises live music, delectable treats, and a chance to meet Cinderella herself. But remember, as the clock strikes midnight, the magic will fade, so be sure to depart in a timely manner. Limited carriage service available for a fairytale exit.",
-      "attendees": 3,
+      "attendees": 4,
       "hostCode": "413nwz"
     },
     {
@@ -177,7 +177,7 @@
       "start": "1100",
       "end": "1800",
       "description": "Experience the magic of the Scottish Highlands at the Highland Festival held at the ancient standing stones of Craigh na Dun! Immerse yourself in traditional Highland games, music, and dance. Savor authentic Scottish cuisine and explore local crafts. But heed this warning: if you hear a strange buzzing near the standing stones, do not touch them. It could lead to unexpected journeys through time!",
-      "attendees": 1,
+      "attendees": 3,
       "hostCode": "331vzf"
     },
     {
@@ -189,7 +189,7 @@
       "start": "1100",
       "end": "2100",
       "description": "Join fellow survivors of Oceanic Flight 815 for a beach party on this mysterious island! Relax on the sandy shores, swim in the crystal-clear waters, and explore the lush tropical surroundings. Enjoy a BBQ feast with fresh island fruits and seafood delicacies. As the sun sets, gather around the bonfire for stories and camaraderie. Keep an eye out for any unexpected visitors or strange occurrences. Limited seating available, so bring your own beach blanket or chair.",
-      "attendees": 3,
+      "attendees": 6,
       "hostCode": "812vce"
     },
     {
@@ -201,7 +201,7 @@
       "start": "1700",
       "end": "2200",
       "description": "Get ready for a shindig aboard the legendary spaceship Serenity, cruising through the Black! Join the crew for a night of dancing, live music, and a hearty spread of frontier-style cuisine. Dress in your finest threads or go full space cowboy for the costume contest. Keep an eye on your belongings, though; Jayne Cobb has a knack for 'borrowing' shiny things. Limited shuttle service available for guests from nearby planets, so RSVP early to secure your spot in the Black.",
-      "attendees": 0,
+      "attendees": 1,
       "hostCode": "708wkx"
     },
     {

@@ -1,3 +1,5 @@
+'use strict'
+
 //global variables
 const createEventButton = document.querySelector('#eventCreateBtn');
 const modalBox = document.querySelector('.modal');
@@ -11,7 +13,6 @@ const eventDetails = document.querySelector("#detailsModal")
 const searchEvents = document.querySelector("#search")
 const adminKey = '091123';
 
-// Kat code
 // helper functions
 const personVsPeople = (eventObj) => {
   if(eventObj.attendees === 1) {
@@ -21,19 +22,20 @@ const personVsPeople = (eventObj) => {
   }
 }
 
+let detailFooter;
+let h3detail;
+let h3card;
+let interested;
+let going;
+let notgoing;
+
 // display event details
 const displayDetails = (e, eventObj) => {
   eventDetails.innerHTML = "";
 
-  let detailFooter;
-  let h3;
-  let interested;
-  let going;
-  let notgoing;
-
   displayDetailsCard(e, eventObj)
   displayDetailsLabel(e, eventObj)
-  checkLocalStorage(e, eventObj)
+  checkLocalStorage(eventObj, h3detail)
   
   eventDetails.parentNode.classList.add('unhide')
 }
@@ -44,7 +46,7 @@ function displayDetailsCard(e, eventObj) {
   const pLocation = document.createElement("p")
   const pDescrip = document.createElement("p")
 
-  h3 = document.createElement("h3")
+  h3detail = document.createElement("h3")
   detailFooter = document.createElement("div")
 
   image.src = eventObj.image
@@ -55,10 +57,10 @@ function displayDetailsCard(e, eventObj) {
   pLocation.textContent = eventObj.location
   pDescrip.textContent = eventObj.description
 
-  h3.textContent = eventObj.name
+  h3detail.textContent = eventObj.name
   detailFooter.setAttribute("class", "detail-footer")
 
-  eventDetails.append(image, h3, pLocation, pDateAndTime, pDescrip, detailFooter)
+  eventDetails.append(image, h3detail, pLocation, pDateAndTime, pDescrip, detailFooter)
   eventDetails.parentNode.classList.add('unhide')
 }
 
@@ -68,11 +70,7 @@ function displayDetailsLabel(e, eventObj) {
   const dropdown = document.createElement("select")
   const select = document.createElement("option")
   const attendSpan = document.createElement("span") 
-  
-  interested = document.createElement("option")
-  going = document.createElement("option")
-  notgoing = document.createElement("option")
-  
+
   label.setAttribute("name", "attending")
   dropdown.setAttribute("name", "attending")
   select.setAttribute("value", "")
@@ -96,29 +94,33 @@ function displayDetailsLabel(e, eventObj) {
 }
 
 // check local storage for attend status
-function checkLocalStorage(e, eventObj) {
-  if (localStorage.getItem(eventObj.id) !== 0) { 
+function checkLocalStorage(eventObj, target) {
+  const localState = localStorage.getItem(eventObj.id)
+  if (localState !== 0) { 
     const iconSpan = document.createElement('span');
 
-    if (localStorage.getItem(eventObj.id) === '1') {
+    if (localState === '1') {
       interested.selected = 'true'
       iconSpan.textContent = ' ★'
       iconSpan.classList.add('interested')
     }
-    if (localStorage.getItem(eventObj.id) === '2') {
+    if (localState === '2') {
       going.selected = 'true'
       iconSpan.textContent = ' ✔'
       iconSpan.classList.add('going')
     }
-    if (localStorage.getItem(eventObj.id) === '3') {
+    if (localState === '3') {
       notgoing.selected = 'true'
       iconSpan.textContent = ' ✘'
       iconSpan.classList.add('notgoing')
     }
 
-    let currentId = eventObj.id;
-
-    h3.append(iconSpan)
+    if (target === h3detail) {
+      target.append(iconSpan)
+    } else if (target == h3card) {
+      target.textContent = " " + eventObj.name
+      target.insertAdjacentElement('afterbegin', iconSpan)
+    }
   }
 }
 
@@ -126,21 +128,27 @@ function checkLocalStorage(e, eventObj) {
 const renderEvent = (eventObj) => {
   const eventCard = document.createElement("div");
   const image = document.createElement("img");
-  const h3 = document.createElement("h3");
   const tooltip = document.createElement("span");
+
+  interested = document.createElement("option")
+  going = document.createElement("option")
+  notgoing = document.createElement("option")
   
   image.src = eventObj.image
   image.alt = eventObj.name
-  h3.textContent = eventObj.name
+  h3card = document.createElement("h3");
+  h3card.textContent = eventObj.name
   tooltip.textContent = "Right click to edit event."
   tooltip.classList.add("tooltiptext")
 
   eventCard.setAttribute("class", "card")
   eventCard.setAttribute("card-id", eventObj.id)
   eventCard.classList.add('tooltip')
-  eventCard.append(image, h3, tooltip)
+  eventCard.append(image, h3card, tooltip)
 
-  localStorage.setItem(eventObj.id, "0")
+  localStorage.setItem(eventObj.id, localStorage[eventObj.id])
+  const localState = localStorage.getItem(eventObj.id)
+  checkLocalStorage(eventObj, h3card)
 
   eventCard.addEventListener("click", (e) => displayDetails(e, eventObj))
   eventCard.addEventListener("contextmenu", (e) => validateEditor(e, eventObj))
@@ -188,7 +196,7 @@ const createNewEventObj = (e) => {
       hostCode: genHostCode(),
       attendees: 0
     }
-    debugger
+
     submitNewEvent(eventObj);
     alert(`Thanks for submitting your event! Your host code is ${eventObj.hostCode}. You need this code if you want to edit your event. Thanks!`);
     modalBox.classList.remove('unhide');
@@ -226,9 +234,6 @@ window.addEventListener("scroll", e => stickyHeader(e))
 // event listener for search
 searchEvents.addEventListener("submit", e => searchByKeyword(e))
 
-
-
-// Joseph code
 //add toggle visibility functionality to modal box
 createEventButton.addEventListener('click', () => {
   modalBox.classList.add('unhide');
@@ -245,20 +250,6 @@ eventForm.addEventListener('submit', (e) => {
   e.preventDefault();
   createNewEventObj(e)
 })
-
-//helper functions
-// function getAllData() {
-//   fetch(fetchUrl)
-//     .then(resp => {
-//       if (resp.ok) return resp.json()
-//       throw new Error('Failed to fetch event data.')
-//     })
-//     .then(objArray => {
-//       objArray.sort((a, b) => sortByDate(a, b))
-//       objArray.forEach(event => renderEvent(event))
-//     })
-//     .catch(err => alert(err.message))
-// }
 
 const sortAndIterate = (objArray) => {
   objArray.sort((a, b) => sortByDate(a, b))
@@ -328,17 +319,18 @@ function toggleAttending(e, eventObj) {
     iconSpan.textContent = ' ✘'
     iconSpan.classList.add('notgoing')
     localStorage.setItem(eventObj.id, "3")
+  } else {
+    iconSpan.textContent = ""
+    localStorage.setItem(eventObj.id, "0")
   }
 
   let currentId = eventObj.id;
   let target = document.querySelector(`div#eventsContainer [card-id="${currentId}"] h3`);
   if (target.querySelector('span') !== null) target.querySelector('span').remove();
 
-  //THIS!!! THIS! DYAAAAAAH! Apparently target.append(element) will REMOVE
-  //the original element and append it elsewhere. Had to create a clone of the iconSpan
-  //and append THAT. Blaaaah....
   let iconSpan2 = iconSpan.cloneNode(true);
-  target.insertAdjacentElement('beforeend', iconSpan2)
+  target.textContent = " " + eventObj.name;
+  target.insertAdjacentElement('afterbegin', iconSpan2)
 
   eventDetails.children[1].append(iconSpan)
 }
@@ -349,47 +341,21 @@ function parseDate(dateString) {
   const day = split[2];
   const year = split[0];
 
-  function getMonthStr(monthNum) {
-    switch(monthNum) {
-      case "01":
-        return "January";
-        break;
-      case "02":
-        return "February";
-        break;
-      case "03":
-        return "March";
-        break;
-      case "04":
-        return "April";
-        break;
-      case "05":
-        return "May";
-        break;
-      case "06":
-        return "June";
-        break;
-      case "07":
-        return "July";
-        break;
-      case "08":
-        return "August";
-        break;
-      case "09":
-        return "September";
-        break;
-      case "10":
-        return "October";
-        break;
-      case "11":
-        return "November";
-        break;
-      case "12":
-        return "December";
-        break;
-    }
+  const getMonthObj = {
+    '01': 'January',
+    '02': 'February',
+    '03': 'March',
+    '04': 'April',
+    '05': 'May',
+    '06': 'June',
+    '07': 'July',
+    '08': 'August',
+    '09': 'September',
+    '10': 'October',
+    '11': 'November',
+    '12': 'December'
   }
-  return `${getMonthStr(month)} ${day}, ${year}`;
+  return `${getMonthObj[month]} ${day}, ${year}`;
 }
 
 function genHostCode() {
@@ -470,17 +436,19 @@ function patchEvent(e, eventObj) {
   }
 }
 
+//fun footer random quote machine
 const quotes = [['The real voyage of discovery consists not in seeking new landscapes but in having new eyes.', '-Marcel Proust'], ['It is only with the heart that one can see rightly.', '-Antoine de Saint-Exupery'], ['There is some good in this world, and it’s worth fighting for.', '-J.R.R. Tolkien'], ['Beware; for I am fearless, and therefore powerful.', '-Mary Shelley'], ['The only way out of the labyrinth of suffering is to forgive.', '-John Green'], ['We accept the love we think we deserve.', '-Stephen Chobosky'], ['There are years that ask questions and years that answer.', '-Zora Neale Hurston'], ['It is nothing to die; it is dreadful not to live.', '-Victor Hugo'], ['Why, sometimes, I’ve believed as many as six impossible things before breakfast.', '-Lewis Carroll'], ['It is our choices, Harry, that show what we truly are, far more than our abilities.', '-J.K. Rowling'], ['There are some things you learn best in calm, and some in storm.', '-Willa Cather'], ['The world breaks everyone, and afterward, many are strong at the broken places.', '-Ernest Hemingway'], ['It doesn’t matter who you are or what you look like, so long as somebody loves you.', '-Roald Dahl'], ['And, when you want something, all the universe conspires in helping you to achieve it.', '-Paolo Cohelo'], ['There is always something left to love.', '-Gabriel Garcia Marquez'], ['Love is the longing for the half of ourselves we have lost.', '-Milan Kundera'], ['For you, a thousand times over.', '-Khaled Hosseini'], ['All human wisdom is summed up in these two words – \‘Wait and hope.', '-Alexandre Dumas'], ['What does the brain matter compared with the heart?', '-Virginia Woolf'], ['‘But man is not made for defeat,’ he said. ‘A man can be destroyed but not defeated.\'', '-Ernest Hemingway'], ['If we are honest, we can evolve.', '-Wendy Parr'], ['The only thing necessary for the triumph of evil is for good men to do nothing.', '-Edmund Burke'], ['The future doesn\'t belong to the fainthearted; it belongs to the brave.', '-Ronald Reagan'], ['The harder you work, the luckier you get.', '-Neil Donat'], ['Do or do not. There is no try.', '-Master Yoda']];
 const quote = document.querySelector('h3#quote');
 const author = document.querySelector('p#author');
 
 function genRandomQuote() {
   const rIndex = Math.floor(Math.random() * 25);
-  quote.textContent = quotes[rIndex][0];
-  author.textContent = quotes[rIndex][1]
+  const words = quotes[rIndex][0];
+  const person = quotes[rIndex][1];
+  quote.prepend(words)
+  author.prepend(person)
 }
 
 genRandomQuote();
 
-//function call
 getAllData();
