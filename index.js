@@ -89,8 +89,9 @@ const displayDetailsCard = (e, eventObj) => {
   image.src = eventObj.image
   image.alt = eventObj.name
 
-  pDateAndTime.textContent = `${parseDate(eventObj.date)} - ${eventObj.start} to ${eventObj.end}`
+  pDateAndTime.textContent = `${parseDate(eventObj.date)} - ${toNormalTime(eventObj.start)} to ${toNormalTime(eventObj.end)}`
   
+  pLocation.classList.add('italicAndBold')
   pLocation.textContent = eventObj.location
   pDescrip.textContent = eventObj.description
 
@@ -499,6 +500,43 @@ function patchEvent(e, eventObj) {
     .catch(err => alert(err.message))
   } else {
     alert("Please finish editing event.")
+  }
+}
+
+const toNormalTime = (mil) => {
+  if (+mil < 1000) {
+    let temp = mil.slice(1).split("")
+		temp.splice(1, 0, ":")
+    return temp.join("") + " AM"
+  } else if (+mil < 1200) {
+    let temp = mil.split("")
+    temp.splice(2, 0, ":")
+    return temp.join("") + " AM"
+  } else if (+mil >= 1200 && +mil < 1300) {
+    let temp = mil.split("")
+    temp.splice(2, 0, ":")
+    return temp.join("") + " PM"
+  } else if (+mil < 2100) {
+    mil = +mil
+    mil -= 1200
+    mil = String(mil)
+    let temp = mil.split("")
+    temp.splice(1, 0, ":")
+    return temp.join("") + " PM"
+  } else if (+mil < 2400) {
+    mil = +mil
+    mil -= 1200
+    mil = String(mil)
+    let temp = mil.split("")
+    temp.splice(2, 0, ":")
+    return temp.join("") + " PM"
+  } else {
+    mil = +mil
+    mil -= 1200
+    mil = String(mil)
+    let temp = mil.split("")
+    temp.splice(2, 0, ":")
+    return temp.join("") + " AM"
   }
 }
 
