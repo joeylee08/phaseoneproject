@@ -118,8 +118,6 @@ const checkLocalStorage = (eventObj, target, localState) => {
     notgoing.selected = 'true'
     iconSpan.textContent = ' ✘'
     iconSpan.classList.add('notgoing')
-  } else {
-    //WHAT GOES HEREEE!!!!!! WHATS IN THE BOXXXX???!??
   }
 
   if (target === h3detail) {
