@@ -1,6 +1,6 @@
 # Dynamic Community Events Calendar
 
-![]()
+![](https://github.com/joeylee08/phaseoneproject/blob/final_maybe/phaseoneprojectgif.gif)
 
 ## Project Description
 
