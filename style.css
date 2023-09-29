@@ -284,3 +284,8 @@ footer {
 #gitlinks a:hover {
   text-decoration: underline;
 }
+
+.italicAndBold {
+  font-weight: bold;
+  font-style: italic;
+}

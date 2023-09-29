@@ -14,6 +14,13 @@ const searchEvents = document.querySelector("#search")
 const clearDiv = document.querySelector("#clearDiv")
 const adminKey = '091123';
 
+const getStatus = {
+  0: '',
+  1: 'interested',
+  2: 'going',
+  3: 'notgoing'
+}
+
 let detailFooter;
 let h3detail;
 let h3card;
@@ -82,8 +89,9 @@ const displayDetailsCard = (e, eventObj) => {
   image.src = eventObj.image
   image.alt = eventObj.name
 
-  pDateAndTime.textContent = `${parseDate(eventObj.date)} - ${eventObj.start} to ${eventObj.end}`
+  pDateAndTime.textContent = `${parseDate(eventObj.date)} - ${toNormalTime(eventObj.start)} to ${toNormalTime(eventObj.end)}`
   
+  pLocation.classList.add('italicAndBold')
   pLocation.textContent = eventObj.location
   pDescrip.textContent = eventObj.description
 
@@ -111,8 +119,6 @@ const checkLocalStorage = (eventObj, target, localState) => {
     notgoing.selected = 'true'
     iconSpan.textContent = ' ✘'
     iconSpan.classList.add('notgoing')
-  } else {
-    //WHAT GOES HEREEE!!!!!! WHATS IN THE BOXXXX???!??
   }
 
   if (target === h3detail) {
@@ -160,6 +166,11 @@ const toggleAttending = (e, eventObj) => {
 
 // create attend dropdown
 const displayDetailsLabel = (e, eventObj) => {
+  //check localStorage for eventObj.id
+  //depending on the key value, "select" appropriate option
+  
+  const status = localStorage.getItem(eventObj.id)
+  
   const label = document.createElement("label") 
   const dropdown = document.createElement("select")
   const select = document.createElement("option")
@@ -184,6 +195,9 @@ const displayDetailsLabel = (e, eventObj) => {
   
   dropdown.append(select, interested, going, notgoing)
   label.append(dropdown)
+
+  dropdown.value = getStatus[status]
+
   detailFooter.append(label, attendSpan)
 }
 
@@ -486,6 +500,43 @@ function patchEvent(e, eventObj) {
     .catch(err => alert(err.message))
   } else {
     alert("Please finish editing event.")
+  }
+}
+
+const toNormalTime = (mil) => {
+  if (+mil < 1000) {
+    let temp = mil.slice(1).split("")
+		temp.splice(1, 0, ":")
+    return temp.join("") + " AM"
+  } else if (+mil < 1200) {
+    let temp = mil.split("")
+    temp.splice(2, 0, ":")
+    return temp.join("") + " AM"
+  } else if (+mil >= 1200 && +mil < 1300) {
+    let temp = mil.split("")
+    temp.splice(2, 0, ":")
+    return temp.join("") + " PM"
+  } else if (+mil < 2100) {
+    mil = +mil
+    mil -= 1200
+    mil = String(mil)
+    let temp = mil.split("")
+    temp.splice(1, 0, ":")
+    return temp.join("") + " PM"
+  } else if (+mil < 2400) {
+    mil = +mil
+    mil -= 1200
+    mil = String(mil)
+    let temp = mil.split("")
+    temp.splice(2, 0, ":")
+    return temp.join("") + " PM"
+  } else {
+    mil = +mil
+    mil -= 1200
+    mil = String(mil)
+    let temp = mil.split("")
+    temp.splice(2, 0, ":")
+    return temp.join("") + " AM"
   }
 }
 

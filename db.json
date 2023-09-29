@@ -33,7 +33,7 @@
       "start": "0700",
       "end": "1200",
       "description": "Step into the magical world of Hogwarts and join us for a spellbinding lesson in Potions and Charms! Led by the esteemed Professor Snape, this class offers a hands-on experience in brewing potions and mastering enchantments. All necessary materials will be provided, so simply bring your eagerness to learn and a keen sense of curiosity. For a truly magical arrival, consider taking the Hogwarts Express. Don your robes and prepare for a day of enchantment and wizardry!",
-      "attendees": 23,
+      "attendees": 25,
       "hostCode": "717xet"
     },
     {
@@ -45,7 +45,7 @@
       "start": "0900",
       "end": "1400",
       "description": "Embark on a prehistoric adventure with a picnic on the awe-inspiring Isla Nublar! Surrounded by towering ancient giants, enjoy a leisurely afternoon of fossil-hunting, guided tours, and even the chance to interact with some of the friendlier dinosaurs. Please be sure to bring a sturdy umbrella, as the weather on the island can be as unpredictable as a velociraptor's mood. Arrive by helicopter for a bird's-eye view of this astonishing ecosystem, and let the wonders of the past transport you to a world long gone but never forgotten.",
-      "attendees": 8,
+      "attendees": 9,
       "hostCode": "502atf"
     },
     {
@@ -93,7 +93,7 @@
       "start": "1400",
       "end": "2400",
       "description": "Join us for the grand Feast of the Seven Kingdoms in the heart of Westeros! Indulge in a lavish banquet fit for kings and queens, complete with exotic delicacies from across the realm. Come dressed in your finest medieval attire, and be prepared for jousting tournaments and dragon-riding exhibitions. Limited parking available near the Red Keep; consider arriving early for a chance to meet the royal family.",
-      "attendees": 33,
+      "attendees": 34,
       "hostCode": "955anr"
     },
     {
@@ -177,7 +177,7 @@
       "start": "1100",
       "end": "1800",
       "description": "Experience the magic of the Scottish Highlands at the Highland Festival held at the ancient standing stones of Craigh na Dun! Immerse yourself in traditional Highland games, music, and dance. Savor authentic Scottish cuisine and explore local crafts. But heed this warning: if you hear a strange buzzing near the standing stones, do not touch them. It could lead to unexpected journeys through time!",
-      "attendees": 4,
+      "attendees": 5,
       "hostCode": "331vzf"
     },
     {
