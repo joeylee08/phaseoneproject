@@ -196,7 +196,11 @@ const displayDetailsLabel = (e, eventObj) => {
   dropdown.append(select, interested, going, notgoing)
   label.append(dropdown)
 
-  dropdown.value = getStatus[status]
+  if(status){
+    dropdown.value = getStatus[status]
+  } else {
+    dropdown.value = ""
+  }
 
   detailFooter.append(label, attendSpan)
 }
