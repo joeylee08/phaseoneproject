@@ -1,6 +1,6 @@
 # Dynamic Community Events Calendar
 
-![](https://github.com/joeylee08/phaseoneproject/blob/additional_stuffs/phaseoneprojectgif.gif)
+![](https://github.com/joeylee08/phaseoneproject/blob/final_maybe/phaseoneprojectgif.gif)
 
 ## Project Description
 
@@ -27,7 +27,7 @@ Users may also search available events by keyword in the top search bar.
 4. Click the "create new event" button to open a modal form.
 5. Enter the specifics of the new event you wish to publicize.
 6. Confirm submission by clicking the "submit new event" button.
-7. Don't forget to save your user key! Right click on your event and enter user key to edit event details.
+7. Don't forget to save your user key! Right click on your event and enter admin key to edit event details.
 8. Enter a keyword into the search bar to see what events include that keyword.
 9. Clear the search with the "clear search" button at the bottom of the page.
 

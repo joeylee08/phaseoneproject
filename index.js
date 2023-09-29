@@ -167,7 +167,6 @@ const toggleAttending = (e, eventObj) => {
 // create attend dropdown
 const displayDetailsLabel = (e, eventObj) => {
   //check localStorage for eventObj.id
-  //depending on the key value, "select" appropriate option
   
   const status = localStorage.getItem(eventObj.id)
   
