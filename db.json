@@ -129,7 +129,7 @@
       "start": "2000",
       "end": "2300",
       "description": "Step into a world of enchantment at the Enchanted Ball held in the iconic Cinderella's Castle! Dance the night away in a grand ballroom adorned with crystal chandeliers and magical decorations. Elegant gowns and dashing suits are a must! The evening promises live music, delectable treats, and a chance to meet Cinderella herself. But remember, as the clock strikes midnight, the magic will fade, so be sure to depart in a timely manner. Limited carriage service available for a fairytale exit.",
-      "attendees": 4,
+      "attendees": 5,
       "hostCode": "413nwz"
     },
     {
@@ -201,7 +201,7 @@
       "start": "1700",
       "end": "2200",
       "description": "Get ready for a shindig aboard the legendary spaceship Serenity, cruising through the Black! Join the crew for a night of dancing, live music, and a hearty spread of frontier-style cuisine. Dress in your finest threads or go full space cowboy for the costume contest. Keep an eye on your belongings, though; Jayne Cobb has a knack for 'borrowing' shiny things. Limited shuttle service available for guests from nearby planets, so RSVP early to secure your spot in the Black.",
-      "attendees": 2,
+      "attendees": 4,
       "hostCode": "708wkx"
     }
   ]

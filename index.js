@@ -474,11 +474,13 @@ function patchEvent(e, eventObj) {
   e.preventDefault()
   const id = eventObj.id;
   
-  if (validateFormData([editForm.image.value, editForm.name.value, editForm.date.value, editForm.location.value, editForm.desc.value])) {
+  if (validateFormData([editForm.image.value, editForm.name.value, editForm.date.value, editForm.start.value, editForm.end.value, editForm.location.value, editForm.desc.value])) {
     const patched = {
       image: editForm.image.value,
       name: editForm.name.value,
       date: editForm.date.value,
+      start: editForm.start.value,
+      end: editForm.end.value,
       location: editForm.location.value,
       description: editForm.desc.value,
     }
